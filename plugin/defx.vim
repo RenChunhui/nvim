@@ -29,3 +29,4 @@ call defx#custom#column('filename', {
 	\ })
 
 hi def link Defx_filename_directory Directory
+hi def link Defx_icon_directory_icon Directory

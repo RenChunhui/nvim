@@ -4,11 +4,11 @@ let s:modes={
       \ 'R'  			: 'REPLACE',
       \ 'v'  			: 'VISUAL',
       \ 'V'  			: 'V·LINE',
-      \ '\<C-v>' 	: 'V·BLOCK',
+      \ '\<C-v>' 	    : 'V·BLOCK',
       \ 'c'  			: 'COMMAND',
       \ 's'  			: 'SELECT',
       \ 'S'  			: 'S·LINE',
-      \ '\<C-s>' 	: 'S·BLOCK',
+      \ '\<C-s>' 	    : 'S·BLOCK',
       \ 't'  			: 'TERMINAL',    
       \}
 
