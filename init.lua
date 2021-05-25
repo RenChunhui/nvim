@@ -1,6 +1,9 @@
 -- NeoVim 0.5 Configuration
 -- Author: Chunhui Ren <renchunhui2008@gmail.com>
 
+-- 定义变量
+require('init-constant')
+
 -- 常规设置，初使化配置
 require('init-nvim')
 
@@ -12,3 +15,9 @@ require('init-lsp')
 
 -- 补全
 require('init-completion')
+
+-- Explorer
+require('init-explorer')
+
+-- Author
+require('init-dashboard')
