@@ -21,7 +21,7 @@ return require('packer').startup(function()
 
     -- lsp & completion
     use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/nvim-compe'
+    use 'nvim-lua/completion-nvim'
 
     -- dashboard
     use 'glepnir/dashboard-nvim'

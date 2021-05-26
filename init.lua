@@ -21,3 +21,6 @@ require('init-explorer')
 
 -- Author
 require('init-dashboard')
+
+-- keymap
+require('init-keymap')
