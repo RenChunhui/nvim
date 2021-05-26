@@ -1,3 +1,9 @@
+----------------------------------------------------
+-- init-lsp.lua - LSP
+--
+-- Author : Chunhui Ren <renchunhui2008@gmail.com>
+-- License: MIT License
+----------------------------------------------------
 
 -- Angular
 require'lspconfig'.angularls.setup{}
@@ -6,7 +12,10 @@ require'lspconfig'.angularls.setup{}
 require'lspconfig'.bashls.setup{}
 
 -- Css
-require'lspconfig'.cssls.setup{}
+require'lspconfig'.cssls.setup{
+    cmd = { "css-languageserver", "--stdio" },
+    filetypes = { "css", "scss", "less" }
+}
 
 -- Golang
 require'lspconfig'.gopls.setup{}
@@ -22,6 +31,3 @@ require'lspconfig'.tsserver.setup{}
 
 -- VimL
 require'lspconfig'.vimls.setup{}
-
-
-

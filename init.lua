@@ -1,26 +1,23 @@
--- NeoVim 0.5 Configuration
--- Author: Chunhui Ren <renchunhui2008@gmail.com>
+----------------------------------------------------
+-- init.lua - Personal NeoVim 0.5 Configuration
+--
+-- Author : Chunhui Ren <renchunhui2008@gmail.com>
+-- License: MIT License
+----------------------------------------------------
 
--- 定义变量
-require('init-constant')
+-- 全局变量
+require('init-global')
 
--- 常规设置，初使化配置
-require('init-nvim')
+-- 常规设置
+require('init-settings')
 
--- 安装插件
-require('init-packages')
+-- 插件安装
+require('init-plugins')
 
 -- LSP
 require('init-lsp')
 
--- 补全
-require('init-completion')
+-- 自动补全
+require('init-complete')
 
--- Explorer
-require('init-explorer')
-
--- Author
-require('init-dashboard')
-
--- keymap
-require('init-keymap')
+require('init-ui')

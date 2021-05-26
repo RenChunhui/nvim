@@ -1,0 +1,6 @@
+----------------------------------------------------
+-- init-global.lua - Global Variables
+--
+-- Author : Chunhui Ren <renchunhui2008@gmail.com>
+-- License: MIT License
+----------------------------------------------------
