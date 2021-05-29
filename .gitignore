@@ -1,4 +1,5 @@
 /plugged
+/plugin
 .DS_Store
 *.pyc
 .vscode

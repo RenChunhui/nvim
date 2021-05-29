@@ -1,30 +1,20 @@
 ----------------------------------------------------
--- init-plugins.lua - Install Plugins
+-- init-plugins.lua - 插件安装
 --
 -- Author : Chunhui Ren <renchunhui2008@gmail.com>
 -- License: MIT License
 ----------------------------------------------------
 
-local execute = vim.api.nvim_command
-local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim '.. install_path)
-end
-
-vim.cmd "autocmd BufWritePost init-plugins.lua PackerCompile"
-vim.cmd [[packadd packer.nvim]]
-
-return require('packer').startup(function(use)
+require('packer').startup(function (use)
     -- 插件管理
-    use 'wbthomason/packer.nvim'
+    use { 'wbthomason/packer.nvim', opt = true }
 
     -- LSP
-    use 'neovim/nvim-lspconfig'
+    use { 'neovim/nvim-lspconfig' }
 
     -- Autocomplete
-    use 'hrsh7th/nvim-compe'
-    use 'hrsh7th/vim-vsnip'
+    use { 'hrsh7th/nvim-compe' }
+    use { 'hrsh7th/vim-vsnip'}
 
     -- Fuzzy Finder
     use {
@@ -36,16 +26,17 @@ return require('packer').startup(function(use)
     }
 
     -- Syntax
-    use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+    use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"}
 
     -- Explorer
-    use 'kyazdani42/nvim-tree.lua'
+    use { 'kyazdani42/nvim-tree.lua' }
+    use { 'kyazdani42/nvim-web-devicons' }
 
     -- UI
-    use 'ChristianChiarulli/dashboard-nvim'
-    use 'romgrk/barbar.nvim'
+    use { 'glepnir/dashboard-nvim'}
+    use { 'romgrk/barbar.nvim' }
+    use { 'sainnhe/sonokai'}
 
-    use 'folke/which-key.nvim'
-    use 'windwp/nvim-autopairs'
-    use 'editorconfig/editorconfig-vim'
+    use { 'folke/which-key.nvim' }
+    use { 'windwp/nvim-autopairs' }
 end)
