@@ -9,7 +9,7 @@ nvim --headless +PackerUpdate +qall
 nvim --headless +PackerCompile +qall
 
 # 安装 lua 环境
-if test ! $(which nvim); then
+if test ! $(which ninja); then
   brew install ninja
 fi
 
