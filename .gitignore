@@ -1,5 +1,6 @@
 /plugged
-/plugin
+/plugin/packer_compiled.vim
+/lua-language-server
 .DS_Store
 *.pyc
 .vscode

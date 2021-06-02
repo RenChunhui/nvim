@@ -1,6 +1,7 @@
 local mappings = {
     a = {
-        name = "+Application"
+        name = "+Application",
+        v = {"<cmd>:e ~/.config/nvim/init.lua<cr>", "NeoVim"}
     },
     b = {
         name = "+Buffer",
@@ -24,7 +25,8 @@ local mappings = {
         name = "+LSP",
     },
     s = {
-        name = "+Search"
+        name = "+Search",
+        h = { "<cmd>Telescope search_history<cr>","History"}
     },
     t = {
         name = "+Toggle",

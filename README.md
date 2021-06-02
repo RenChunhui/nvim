@@ -1,22 +1,12 @@
-# nvim
-neovim configuration
+<div align="center">
+  <h1>NeoVim 配置</h1>
+</div>
 
-## Atom
-- fg0 
-- bg0
-- bg1
-- folded
+## 安装
 
-- comment     
-- constant    
-- identifier  
-- statement   
-- preproc     
-- type        
-- special     
-- storage     
+> 安装编译 `lua-language-server`
 
-- renamed: #96CBFE;
-- added: #A8FF60;
-- modified: #E9C062;
-- removed: #CC6666;
+``` bash
+$ chmod +x ./install.sh
+$ ./install.sh
+```

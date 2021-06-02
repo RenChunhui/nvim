@@ -11,14 +11,8 @@ local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvi
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   execute('!git clone https://github.com/wbthomason/packer.nvim '.. install_path)
+  execute 'autocmd VimEnter * PackerInstall'
 end
-
-vim.api.nvim_exec([[
-  augroup Packer
-    autocmd!
-    autocmd BufWritePost init.lua PackerCompile
-  augroup end
-]], false)
 
 vim.cmd [[packadd packer.nvim]]
 

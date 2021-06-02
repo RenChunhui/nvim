@@ -5,7 +5,7 @@
 -- License: MIT License
 ----------------------------------------------------
 
-require('packer').startup(function (use)
+require('packer').startup(function(use)
     -- 插件管理
     use { 'wbthomason/packer.nvim', opt = true }
 
@@ -35,7 +35,7 @@ require('packer').startup(function (use)
     -- UI
     use { 'glepnir/dashboard-nvim'}
     use { 'romgrk/barbar.nvim' }
-    use { 'sainnhe/sonokai'}
+    use { 'rafamadriz/neon' }
 
     use { 'folke/which-key.nvim' }
     use { 'windwp/nvim-autopairs' }

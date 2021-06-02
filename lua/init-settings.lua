@@ -54,6 +54,9 @@ vim.o.autoindent = true
 -- 自动折行
 vim.o.wrap = true
 
+-- 不显示
+vim.o.ruler = false
+
 -- 显示括号匹配
 vim.o.showmatch = true
 
@@ -71,4 +74,4 @@ vim.cmd('syntax on')
 vim.cmd('filetype plugin indent on')
 
 -- 颜色主题
-vim.cmd('silent! colorscheme sonokai')
+vim.cmd('silent! colorscheme neon')

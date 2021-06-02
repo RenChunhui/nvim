@@ -5,8 +5,6 @@
 -- License: MIT License
 ----------------------------------------------------
 
-USER = vim.fn.expand('$USER')
-
 local sumneko_root_path = ""
 local sumneko_binary = ""
 
