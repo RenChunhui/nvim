@@ -1,3 +1,5 @@
+vim.g.mapleader = ' '
+
 local mappings = {
     a = {
         name = "+Application",

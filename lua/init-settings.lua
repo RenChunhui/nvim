@@ -5,11 +5,6 @@
 -- License: MIT License
 ----------------------------------------------------
 
--- 键映射
--- vim.g.mapleader = "<Space>"
-vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
-vim.g.mapleader = ' '
-
 -- 禁用 python2 支持
 vim.g.loaded_python_provider = 0
 
@@ -21,20 +16,89 @@ vim.g.loaded_perl_provider = 0
 
 
 
+----------------------------------------------------
+-- 缩进选项
+----------------------------------------------------
+
+-- 继承前一行的缩进方式
+vim.o.autoindent = true
+
+-- 制表符使用空格
+vim.o.expandtab = true
+
+-- 默认使用两个空格
+vim.o.tabstop = 2
+
+-- 自动缩进长度
+vim.o.shiftwidth = 2
+
+
+----------------------------------------------------
+-- 搜索选项
+----------------------------------------------------
+
+-- 高亮显示匹配结果
+vim.o.hlsearch = true
+
+-- 搜索时忽略大小写
+vim.o.ignorecase = true
+
+-- 当包含大小写时，自动区分大小写
+vim.o.smartcase = true
+
+
+
+----------------------------------------------------
+-- 性能选项
+----------------------------------------------------
+
+-- 不要在宏和脚本执行期间更新屏幕
+vim.o.lazyredraw = true
+
+
+
+----------------------------------------------------
+-- 文字渲染
+----------------------------------------------------
+
+-- 启用真彩
+vim.o.termguicolors = true
+
 -- 编码
 vim.o.encoding = 'utf-8'
 
 -- 文件默认编码
 vim.o.fileencoding = 'utf-8'
 
--- 启用真彩
-vim.o.termguicolors = true
+-- 避免在单词中间换行
+vim.o.linebreak = true
+
+-- 自动换行
+vim.o.wrap = true
+
+
+
+----------------------------------------------------
+-- 界面选项
+----------------------------------------------------
 
 -- 高亮当前行
 vim.wo.cursorline = true
 
 -- 显示行号
 vim.wo.number = true
+
+-- 不显示
+vim.o.ruler = false
+
+-- 显示括号匹配
+vim.o.showmatch = true
+
+
+
+----------------------------------------------------
+-- 其他选项
+----------------------------------------------------
 
 -- 不进行备份
 vim.o.backup = false
@@ -44,27 +108,6 @@ vim.o.swapfile = false
 
 -- 记录历史操作
 vim.o.history = 100
-
--- Tab 长度为2空格
-vim.o.tabstop = 2
-
--- 继承前一行的缩进方式
-vim.o.autoindent = true
-
--- 自动折行
-vim.o.wrap = true
-
--- 不显示
-vim.o.ruler = false
-
--- 显示括号匹配
-vim.o.showmatch = true
-
--- 高亮显示匹配结果
-vim.o.hlsearch = true
-
--- 搜索时忽略大小写
-vim.o.ignorecase = true
 
 
 -- 语法高亮
