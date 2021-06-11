@@ -60,6 +60,7 @@ vim.g.nvim_tree_icons = {
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 vim.g.nvim_tree_bindings = {
+        ["<C-t>"] = tree_cb("tabnew"),
 				['R'] = tree_cb('refresh'),
 				['a'] = tree_cb('create'),
 				['d'] = tree_cb('remove'),

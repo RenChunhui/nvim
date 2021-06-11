@@ -94,8 +94,11 @@ vim.o.ruler = false
 -- 显示括号匹配
 vim.o.showmatch = true
 
+-- 显示状态栏
 vim.o.laststatus = 2
 
+-- 显示标签栏
+vim.o.showtabline = 0
 
 
 ----------------------------------------------------
@@ -119,4 +122,4 @@ vim.cmd('syntax on')
 vim.cmd('filetype plugin indent on')
 
 -- 颜色主题
-vim.cmd('silent! colorscheme xcodedark')
+vim.cmd('silent! colorscheme doom-one')

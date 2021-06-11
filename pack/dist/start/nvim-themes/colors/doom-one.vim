@@ -9,7 +9,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "doomone"
+let g:colors_name = "doom-one"
 
 let s:comment    = '5B6268'
 let s:constant   = 'a9a1e1'
@@ -67,6 +67,10 @@ call <sid>hi('Search',       s:bg0, s:preproc)
 call <sid>hi('SpecialKey',   s:bg1, 'none')
 call <sid>hi('StatusLine',   s:bg1,     s:fg1)
 call <sid>hi('StatusLineNC', s:bg1,     s:fg1)
+
+call <sid>hi('TabLine', s:fg0, s:bg0)
+call <sid>hi('TabLineFill', 'none', s:bg1)
+call <sid>hi('TabLineSel', s:fg0, s:bg0)
 
 call <sid>hi('Title',        s:statement,     'none')
 call <sid>hi('Visual',       s:bg0,              s:visual)

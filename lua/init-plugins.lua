@@ -35,8 +35,9 @@ require('packer').startup(function(use)
     -- UI
     use { 'glepnir/dashboard-nvim'}
     use { 'romgrk/barbar.nvim' }
-    use { 'rafamadriz/neon' }
 
     use { 'folke/which-key.nvim' }
     use { 'windwp/nvim-autopairs' }
+    use { 'lukas-reineke/indent-blankline.nvim' }
+    use { 'karb94/neoscroll.nvim' }
 end)

@@ -1,1 +1,5 @@
-require('nvim-autopairs').setup()
+vim.g.indent_blankline_enabled = true
+
+require('nvim-autopairs').setup({
+  disable_filetype = { "TelescopePrompt" , "vim" }
+})
