@@ -88,11 +88,13 @@ vim.wo.cursorline = true
 -- 显示行号
 vim.wo.number = true
 
--- 不显示
+-- 不显示光标
 vim.o.ruler = false
 
 -- 显示括号匹配
 vim.o.showmatch = true
+
+vim.o.laststatus = 2
 
 
 
@@ -117,4 +119,4 @@ vim.cmd('syntax on')
 vim.cmd('filetype plugin indent on')
 
 -- 颜色主题
-vim.cmd('silent! colorscheme neon')
+vim.cmd('silent! colorscheme xcodedark')

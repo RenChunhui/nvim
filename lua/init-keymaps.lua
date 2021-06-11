@@ -9,6 +9,9 @@ local mappings = {
         name = "+Buffer",
         f = { "<cmd>Telescope buffers<cr>", "Find Buffer"}
     },
+    c = {
+      name = "+Compile/Comments"
+    },
     d = {
         name = "+Debug"
     },
@@ -26,6 +29,9 @@ local mappings = {
     l = {
         name = "+LSP",
     },
+    q = {
+      name = "+Quit"
+    },
     s = {
         name = "+Search",
         h = { "<cmd>Telescope search_history<cr>","History"}
@@ -34,6 +40,9 @@ local mappings = {
         name = "+Toggle",
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme"},
         e = { "<cmd>:NvimTreeToggle<cr>", "Explorer"},
+    },
+    w = {
+      name = "+Windows"
     }
 }
 
