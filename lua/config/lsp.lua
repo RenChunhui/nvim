@@ -1,5 +1,5 @@
 ----------------------------------------------------
--- init-lsp.lua - LSP
+-- lsp.lua - LSP
 --
 -- Author : Chunhui Ren <renchunhui2008@gmail.com>
 -- License: MIT License

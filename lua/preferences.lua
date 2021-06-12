@@ -1,5 +1,5 @@
 ----------------------------------------------------
--- init-settings.lua - 常规设置
+-- preferences.lua - 首选项设置
 --
 -- Author : Chunhui Ren <renchunhui2008@gmail.com>
 -- License: MIT License
@@ -13,6 +13,9 @@ vim.g.loaded_ruby_provider = 0
 
 -- 禁用 Perl 支持
 vim.g.loaded_perl_provider = 0
+
+-- 使用空格
+vim.g.mapleader = ' '
 
 
 
@@ -31,6 +34,7 @@ vim.o.tabstop = 2
 
 -- 自动缩进长度
 vim.o.shiftwidth = 2
+
 
 
 ----------------------------------------------------
@@ -113,6 +117,7 @@ vim.o.swapfile = false
 
 -- 记录历史操作
 vim.o.history = 100
+
 
 
 -- 语法高亮

@@ -1,5 +1,5 @@
 ----------------------------------------------------
--- init-complete.lua - Autocomplete
+-- compe.lua - Autocomplete
 --
 -- Author : Chunhui Ren <renchunhui2008@gmail.com>
 -- License: MIT License
