@@ -104,6 +104,8 @@ vim.o.laststatus = 2
 -- 显示标签栏
 vim.o.showtabline = 0
 
+vim.o.mouse = 'a'
+
 
 ----------------------------------------------------
 -- 其他选项
@@ -127,4 +129,4 @@ vim.cmd('syntax on')
 vim.cmd('filetype plugin indent on')
 
 -- 颜色主题
-vim.cmd('silent! colorscheme doom-one')
+vim.cmd('silent! colorscheme one')

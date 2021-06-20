@@ -45,7 +45,12 @@ return require('packer').startup(function (use)
   }
 
   -- Syntax
-  use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"}
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    config = function () require('config.treesitter') end,
+    run = ":TSUpdate"
+  }
+  use { 'nvim-treesitter/playground', config = function () require('config.playground') end }
 
   -- Explorer
   use { 'kyazdani42/nvim-tree.lua', config = function () require('config.tree') end }
@@ -53,7 +58,7 @@ return require('packer').startup(function (use)
 
   -- UI
   use { 'glepnir/dashboard-nvim', config = function () require('config.dashboard') end }
-  use { 'romgrk/barbar.nvim' }
+  use { 'romgrk/barbar.nvim', config = function () require('config.barbar') end }
 
   -- Miscellaneous
   use { 'folke/which-key.nvim', config = function () require('config.keymap') end }
@@ -61,7 +66,8 @@ return require('packer').startup(function (use)
   use {
     'lukas-reineke/indent-blankline.nvim',
     branch = 'lua',
-    setup = function () require('config.indentline') end }
-  use { 'karb94/neoscroll.nvim' }
+    setup = function () require('config.indentline') end
+  }
   use { 'junegunn/vim-easy-align', config = function() require('config.easy_align') end }
+  use 'editorconfig/editorconfig-vim'
 end)
