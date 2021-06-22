@@ -29,10 +29,18 @@ return require('packer').startup(function (use)
   use { 'wbthomason/packer.nvim', opt = true }
 
   -- LSP
-  use { 'neovim/nvim-lspconfig', config = function () require('config.lsp') end }
+  use {
+    'neovim/nvim-lspconfig',
+    config = function () require('config.lsp') end,
+    event = 'BufRead'
+  }
 
   -- Autocomplete
-  use { 'hrsh7th/nvim-compe', config = function () require('config.compe') end, event = 'InsertEnter *' }
+  use {
+    'hrsh7th/nvim-compe',
+    config = function () require('config.compe') end,
+    event = 'InsertEnter'
+  }
   use { 'hrsh7th/vim-vsnip'}
 
   -- Fuzzy Finder
@@ -48,6 +56,7 @@ return require('packer').startup(function (use)
   use {
     'nvim-treesitter/nvim-treesitter',
     config = function () require('config.treesitter') end,
+    event = 'BufRead',
     run = ":TSUpdate"
   }
   use { 'nvim-treesitter/playground', config = function () require('config.playground') end }
@@ -55,6 +64,16 @@ return require('packer').startup(function (use)
   -- Explorer
   use { 'kyazdani42/nvim-tree.lua', config = function () require('config.tree') end }
   use { 'kyazdani42/nvim-web-devicons', config = function () require('config.icons') end }
+
+  -- Database
+  use {
+    'tpope/vim-dadbod',
+    requires = {
+      'kristijanhusak/vim-dadbod-ui',
+      'kristijanhusak/vim-dadbod-completion'
+    },
+    config = function () require('config.dadbod') end
+  }
 
   -- UI
   use { 'glepnir/dashboard-nvim', config = function () require('config.dashboard') end }
@@ -68,6 +87,10 @@ return require('packer').startup(function (use)
     branch = 'lua',
     setup = function () require('config.indentline') end
   }
-  use { 'junegunn/vim-easy-align', config = function() require('config.easy_align') end }
+  use {
+    'junegunn/vim-easy-align',
+    config = function() require('config.easy_align') end,
+    keys = '<Plug>(EasyAlign)'
+  }
   use 'editorconfig/editorconfig-vim'
 end)
