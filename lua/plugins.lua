@@ -29,18 +29,10 @@ return require('packer').startup(function (use)
   use { 'wbthomason/packer.nvim', opt = true }
 
   -- LSP
-  use {
-    'neovim/nvim-lspconfig',
-    config = function () require('config.lsp') end,
-    event = 'BufRead'
-  }
+  use { 'neovim/nvim-lspconfig', config = function () require('config.lsp') end }
 
   -- Autocomplete
-  use {
-    'hrsh7th/nvim-compe',
-    config = function () require('config.compe') end,
-    event = 'InsertEnter'
-  }
+  use { 'hrsh7th/nvim-compe',config = function () require('config.compe') end }
   use { 'hrsh7th/vim-vsnip'}
 
   -- Fuzzy Finder
@@ -56,7 +48,6 @@ return require('packer').startup(function (use)
   use {
     'nvim-treesitter/nvim-treesitter',
     config = function () require('config.treesitter') end,
-    event = 'BufRead',
     run = ":TSUpdate"
   }
   use { 'nvim-treesitter/playground', config = function () require('config.playground') end }
