@@ -5,7 +5,10 @@ local mappings = {
   },
   b = {
       name = "+Buffer",
-      f = { "<cmd>Telescope buffers<cr>", "Find Buffer"}
+      d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
+      D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration" },
+      f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+      F = { "<cmd>Telescope buffers<cr>", "Find Buffer"},
   },
   c = {
     name = "+Compile/Comments"
