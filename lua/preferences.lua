@@ -8,6 +8,13 @@
 -- 禁用 python2 支持
 vim.g.loaded_python_provider = 0
 
+-- 禁用 python3 支持(暂无这方面插件)
+-- vim.g.python3_host_prog = vim.fn.exepath('python3')
+vim.g.loaded_python3_provider = 0
+
+-- 禁用 node 支持
+vim.g.loaded_node_provider = 0
+
 -- 禁用 Ruby 支持
 vim.g.loaded_ruby_provider = 0
 

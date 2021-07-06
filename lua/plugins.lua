@@ -14,10 +14,10 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   execute 'autocmd VimEnter * PackerInstall'
 end
 
-vim.cmd('packadd packer.nvim')
+vim.cmd [[ packadd packer.nvim ]]
 
 -- 命令
-vim.cmd [[command! WhatHighlight :call util#syntax_stack()]]
+vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
 vim.cmd [[command! PackerInstall packadd packer.nvim | lua require('plugins').install()]]
 vim.cmd [[command! PackerUpdate packadd packer.nvim | lua require('plugins').update()]]
 vim.cmd [[command! PackerSync packadd packer.nvim | lua require('plugins').sync()]]

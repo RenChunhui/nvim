@@ -10,7 +10,9 @@ vim.g.dashboard_custom_header = {
     '                                                 '
 }
 
-vim.g.dashboard_custom_footer = {}
+vim.g.dashboard_custom_footer = {
+  " " .. vim.fn['startup#plugins']()
+}
 vim.g.dashboard_custom_section = {
   a = {description = {' Find file                              SPC f f'}, command = 'Telescope find_files'},
   b = {description = {' History                                SPC s h'}, command = 'Telescope search_history'},
