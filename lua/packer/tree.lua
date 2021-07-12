@@ -60,14 +60,15 @@ vim.g.nvim_tree_icons = {
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 vim.g.nvim_tree_bindings = {
-        ["<C-t>"] = tree_cb("tabnew"),
-				['R'] = tree_cb('refresh'),
-				['a'] = tree_cb('create'),
-				['d'] = tree_cb('remove'),
-				['r'] = tree_cb('rename'),
-				['x'] = tree_cb('cut'),
-				['c'] = tree_cb('copy'),
-				['p'] = tree_cb('paste'),
-        ['q'] = tree_cb('close'),
-        ['<Tab>'] = tree_cb('edit')
+  { key = "<C-t>",                        cb = tree_cb("tabnew") },
+  { key = "R",                            cb = tree_cb("refresh") },
+  { key = "a",                            cb = tree_cb("create") },
+  { key = "d",                            cb = tree_cb("remove") },
+  { key = "r",                            cb = tree_cb("rename") },
+  { key = "x",                            cb = tree_cb("cut") },
+  { key = "c",                            cb = tree_cb("copy") },
+  { key = "p",                            cb = tree_cb("paste") },
+  { key = "q",                            cb = tree_cb("close") },
+  { key = "<Tab>",                        cb = tree_cb("edit")}
 }
+

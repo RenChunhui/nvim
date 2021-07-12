@@ -7,11 +7,12 @@ vim.g.dashboard_custom_header = {
     '██   ████ ███████  ██████    ████   ██ ██      ██',
     '                                                 ',
     '             [NeoVim version: 0.5.0]             ',
-    '                                                 '
+    '                                                 ',
+    '                       ' .. vim.fn['startup#plugins']()
 }
 
 vim.g.dashboard_custom_footer = {
-  " " .. vim.fn['startup#plugins']()
+
 }
 vim.g.dashboard_custom_section = {
   a = {description = {' Find file                              SPC f f'}, command = 'Telescope find_files'},

@@ -43,7 +43,7 @@ local mappings = {
   t = {
       name = "Toggle",
       c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme"},
-      e = { "<cmd>:NvimTreeToggle<cr>", "Explorer"},
+      e = { "<cmd>NvimTreeToggle<cr>", "Explorer"},
   },
   w = {
     name = "Windows"

@@ -165,3 +165,6 @@ call <sid>hi("TSType",               s:type,"","")
 call <sid>hi("TSTypeBuiltin",        s:type,"","")
 call <sid>hi("TSVariable",           s:fg0,"","")
 call <sid>hi("TSVariableBuiltin",    s:statement,"","")
+
+
+call <sid>hi("IndentBlanklineChar",  s:comment, "", "")

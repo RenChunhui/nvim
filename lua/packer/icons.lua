@@ -15,11 +15,6 @@ require'nvim-web-devicons'.setup {
       color = '#3C8376',
       name = 'Gvimrc'
     },
-    ['.npmrc'] = {
-      icon = "",
-      color = "#E8274B",
-      name = 'npmrc'
-    },
     ['angular.json'] = {
       icon = "",
       color = "#E23237",
@@ -60,6 +55,11 @@ require'nvim-web-devicons'.setup {
       color = '#DD4C35',
       name = 'GitModules'
     },
+    ['.gitkeep'] = {
+      icon = '',
+      color = '#DD4C35',
+      name = 'GitKeep'
+    },
 
     ---------------------------------------------
     -- Files
@@ -84,6 +84,42 @@ require'nvim-web-devicons'.setup {
       icon = "",
       color = "#6F4E37",
       name = "Gemfile"
+    },
+
+
+
+    ---------------------------------------------
+    -- Files
+    ---------------------------------------------
+    ['.npmrc'] = {
+      icon = "",
+      color = "#E8274B",
+      name = 'npmrc'
+    },
+    ['package.json'] = {
+      icon = "",
+      color = "#E8274B",
+      name = 'package'
+    },
+    ['package-lock.json'] = {
+      icon = "",
+      color = "#E8274B",
+      name = 'packageJson'
+    },
+
+
+
+    ---------------------------------------------
+    -- Configs
+    ---------------------------------------------
+
+    ['.editorconfig'] = {
+      icon = '',
+      name = 'editorconfig'
+    },
+    ['.browserslistrc'] = {
+      icon = '',
+      name = 'browserslistrc'
     },
   }
 }
