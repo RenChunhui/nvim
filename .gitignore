@@ -1,3 +1,4 @@
 .DS_Store
 /lua-language-server
 /pack/vendor
+/plugin/packer_compiled.lua
