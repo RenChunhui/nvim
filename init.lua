@@ -11,8 +11,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://ghproxy.com/https://github.com/wbthomason/packer.nvim', install_path })
 end
 
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | PackerCompile', group = packer_group, pattern = 'init.lua' })
+vim.cmd([[autocmd BufWritePost init.lua source <afile> | PackerCompile]])
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -31,6 +30,10 @@ packer.startup({ function(use)
       require('user-lspconfig')
     end,
     event = 'BufReadPre'
+  }
+  use {
+    'folke/trouble.nvim',
+    cmd = 'TroubleToggle'
   }
 
   -- Completion
@@ -61,18 +64,25 @@ packer.startup({ function(use)
     end,
     event = 'BufRead'
   }
+  use {
+    'nvim-treesitter/playground',
+    config = function()
+      require('user-playground')
+    end,
+    cmd = 'TSPlaygroundToggle'
+  }
 
   -- Tree
   use {
     'kyazdani42/nvim-tree.lua',
-    config = function ()
+    config = function()
       require('user-tree')
     end,
     cmd = { 'NvimTreeToggle', 'NvimTreeOpen' }
   }
   use {
     'akinsho/bufferline.nvim',
-    config = function ()
+    config = function()
       require('user-bufferline')
     end
   }
@@ -104,8 +114,26 @@ packer.startup({ function(use)
     keys = "<space>"
   }
 
+  use {
+    'nvim-orgmode/orgmode',
+    ft = {'orgmode'}
+  }
+
   -- Formatter
-  use { 'windwp/nvim-autopairs', event = 'InsertEnter' }
+  use {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('user-autopairs')
+    end,
+    event = 'InsertEnter'
+  }
+  use {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('user-autotag')
+    end,
+    after = 'nvim-treesitter'
+  }
   use { 'prettier/vim-prettier', event = 'BufRead' }
 
   if packer_bootstrap ~= nil then
