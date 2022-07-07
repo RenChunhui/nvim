@@ -63,7 +63,6 @@ opt.writebackup = false
 opt.swapfile = false
 
 cmd [[
-  syntax on
   filetype plugin indent on
-  silent! colorscheme one
+  silent! colorscheme apple
 ]]
