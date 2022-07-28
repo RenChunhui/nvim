@@ -10,7 +10,7 @@ wk.setup({
   icons = {
   },
   window = {
-    border = 'single',
+    border = 'none',
     position = 'bottom',
     margin = { 0, 0, 0, 0 },
     padding = { 1, 1, 1, 1 },

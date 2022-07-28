@@ -7,21 +7,22 @@ end
 vim.g.colors_name = 'github'
 
 local api = vim.api
--- bg = canvas.default
--- fg = fg.default
--- bg_alt = canvas.subtle
--- comment = fg.muted
 local theme = {
   bg = '#0d1117',
   fg = '#c9d1d9',
   bg_alt = '#161b22',
-  fg_alt = '#8b949e',
+  fg_alt = '#b1bac4',
   border = '#30363d',
+  accent = '#58a6ff',
+  cursor = '#173B66',
+  pmenu = '#161b22',
 
   comment = '#8b949e',
+  constant = '#79c0ff',
+  entity = '#d2a8ff',
   keyword = '#ff7b72',
   string = '#a5d6ff',
-  constant = '#79c0ff',
+  variable = '#ffa657',
   method = '#d2a8ff',
   tag = '#7ee787',
 
@@ -73,7 +74,7 @@ api.nvim_set_hl(0, 'DiffChange', { fg = theme.modified })
 api.nvim_set_hl(0, 'DiffDelete', { fg = theme.removed })
 api.nvim_set_hl(0, 'DiffText', { fg = theme.renamed })
 
-api.nvim_set_hl(0, 'EndOfBuffer', {  })
+api.nvim_set_hl(0, 'EndOfBuffer', { fg = theme.bg })
 
 api.nvim_set_hl(0, 'TermCursor', { })
 api.nvim_set_hl(0, 'TermCursorNC', { })
@@ -88,7 +89,7 @@ api.nvim_set_hl(0, 'Substitute', { })
 api.nvim_set_hl(0, 'LineNr', { fg = theme.comment })
 api.nvim_set_hl(0, 'LineNrAbove', { })
 api.nvim_set_hl(0, 'LineNrBelow', { })
-api.nvim_set_hl(0, 'CursorLineNr', {  })
+api.nvim_set_hl(0, 'CursorLineNr', { fg = theme.fg })
 api.nvim_set_hl(0, 'CursorLineSign', { })
 api.nvim_set_hl(0, 'CursorLineFold', { })
 api.nvim_set_hl(0, 'MatchParen', { })
@@ -101,10 +102,10 @@ api.nvim_set_hl(0, 'Normal', { fg = theme.fg, bg = theme.bg })
 api.nvim_set_hl(0, 'NormalFloat', { })
 api.nvim_set_hl(0, 'NormalNC', { })
 
-api.nvim_set_hl(0, 'Pmenu', { })
-api.nvim_set_hl(0, 'PmenuSel', { })
+api.nvim_set_hl(0, 'Pmenu', { fg = theme.fg, bg = theme.pmenu })
+api.nvim_set_hl(0, 'PmenuSel', { fg = theme.fg, bg= theme.cursor })
 api.nvim_set_hl(0, 'PmenuSbar', { bg = theme.comment })
-api.nvim_set_hl(0, 'PmenuThumb', { })
+api.nvim_set_hl(0, 'PmenuThumb', { bg = theme.pmenu })
 
 api.nvim_set_hl(0, 'Question', { })
 api.nvim_set_hl(0, 'QuickFixLine', { })
@@ -165,14 +166,14 @@ api.nvim_set_hl(0, 'TSFuncBuiltin', { })
 api.nvim_set_hl(0, 'TSFuncMacro', { })
 api.nvim_set_hl(0, 'TSInclude', { fg = theme.keyword })
 api.nvim_set_hl(0, 'TSKeyword', { fg = theme.keyword })
-api.nvim_set_hl(0, 'TSKeywordFunction', {  })
+api.nvim_set_hl(0, 'TSKeywordFunction', { fg = theme.keyword })
 api.nvim_set_hl(0, 'TSKeywordOperator', {  })
 api.nvim_set_hl(0, 'TSKeywordReturn', { })
 api.nvim_set_hl(0, 'TSLabel', { })
-api.nvim_set_hl(0, 'TSMethod', {  })
+api.nvim_set_hl(0, 'TSMethod', { fg = theme.method })
 api.nvim_set_hl(0, 'TSNamespace', { })
 api.nvim_set_hl(0, 'TSNone', { })
-api.nvim_set_hl(0, 'TSNumber', {  })
+api.nvim_set_hl(0, 'TSNumber', { fg = theme.constant })
 api.nvim_set_hl(0, 'TSOperator', { fg = theme.keyword })
 api.nvim_set_hl(0, 'TSParameter', { })
 api.nvim_set_hl(0, 'TSParameterReference', { })
@@ -213,3 +214,103 @@ api.nvim_set_hl(0, 'TSTypeQualifier', { })
 api.nvim_set_hl(0, 'TSTypeDefinition', { })
 api.nvim_set_hl(0, 'TSVariable', {  })
 api.nvim_set_hl(0, 'TSVariableBuiltin', { })
+
+
+
+-------------------------------------------------
+-- statusline
+-------------------------------------------------
+
+api.nvim_set_hl(0, 'StatusLineMode', { fg = theme.accent, bg = theme.bg_alt })
+api.nvim_set_hl(0, 'StatusLineGitBranch', { bg = theme.bg_alt})
+api.nvim_set_hl(0, 'StatusLineGitCommitAdded', { fg = theme.added, bg = theme.bg_alt })
+api.nvim_set_hl(0, 'StatusLineGitCommitChanged', { fg = theme.modified, bg = theme.bg_alt })
+api.nvim_set_hl(0, 'StatusLineGitCommitRemoved', { fg = theme.removed, bg = theme.bg_alt })
+api.nvim_set_hl(0, 'StatusLineDiagnosticError', { fg = theme.removed, bg = theme.bg_alt })
+api.nvim_set_hl(0, 'StatusLineDiagnosticWarning', { fg = theme.modified, bg = theme.bg_alt })
+api.nvim_set_hl(0, 'StatusLineLspProgress', { fg = theme.comment, bg = theme.bg_alt })
+api.nvim_set_hl(0, 'StatusLineFileType', { bg = theme.bg_alt})
+api.nvim_set_hl(0, 'StatusLineEncode', { bg = theme.bg_alt})
+
+
+
+-------------------------------------------------
+-- nvim-cmp
+-------------------------------------------------
+
+api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', {})
+api.nvim_set_hl(0, 'CmpItemAbbrMatch', {})
+api.nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', {})
+api.nvim_set_hl(0, 'CmpItemMenu', {})
+
+api.nvim_set_hl(0, 'CmpItemKindField', {})
+api.nvim_set_hl(0, 'CmpItemKindProperty', {})
+api.nvim_set_hl(0, 'CmpItemKindEvent', {})
+
+api.nvim_set_hl(0, 'CmpItemKindText', {})
+api.nvim_set_hl(0, 'CmpItemKindEnum', {})
+api.nvim_set_hl(0, 'CmpItemKindKeyword', {})
+
+api.nvim_set_hl(0, 'CmpItemKindConstant', {})
+api.nvim_set_hl(0, 'CmpItemKindConstructor', {})
+api.nvim_set_hl(0, 'CmpItemKindReference', {})
+
+api.nvim_set_hl(0, 'CmpItemKindFunction', { fg = theme.method })
+api.nvim_set_hl(0, 'CmpItemKindStruct', {})
+api.nvim_set_hl(0, 'CmpItemKindClass', {})
+api.nvim_set_hl(0, 'CmpItemKindModule', {})
+api.nvim_set_hl(0, 'CmpItemKindOperator', {})
+
+api.nvim_set_hl(0, 'CmpItemKindVariable', {})
+api.nvim_set_hl(0, 'CmpItemKindFile', {})
+
+api.nvim_set_hl(0, 'CmpItemKindUnit', {})
+api.nvim_set_hl(0, 'CmpItemKindSnippet', {})
+api.nvim_set_hl(0, 'CmpItemKindFolder', {})
+
+api.nvim_set_hl(0, 'CmpItemKindMethod', {})
+api.nvim_set_hl(0, 'CmpItemKindValue', {})
+api.nvim_set_hl(0, 'CmpItemKindEnumMember', {})
+
+api.nvim_set_hl(0, 'CmpItemKindInterface', {})
+api.nvim_set_hl(0, 'CmpItemKindColor', {})
+api.nvim_set_hl(0, 'CmpItemKindTypeParameter', {})
+
+
+
+-------------------------------------------------
+-- which key
+-------------------------------------------------
+
+api.nvim_set_hl(0, 'WhichKey', { fg = theme.fg })
+api.nvim_set_hl(0, 'WhichKeyGroup', { fg = theme.comment })
+api.nvim_set_hl(0, 'WhichKeySeparator', { fg = theme.comment })
+api.nvim_set_hl(0, 'WhichKeyDesc', { fg = theme.comment })
+api.nvim_set_hl(0, 'WhichKeyFloat', { fg = theme.fg, bg = theme.pmenu })
+api.nvim_set_hl(0, 'WhichKeyValue', { fg = theme.comment })
+
+
+-------------------------------------------------
+-- nvim-tree
+-------------------------------------------------
+
+api.nvim_set_hl(0, 'NvimTreeSymlink', {  })
+api.nvim_set_hl(0, 'NvimTreeFolderName', {  })
+api.nvim_set_hl(0, 'NvimTreeRootFolder', {  })
+api.nvim_set_hl(0, 'NvimTreeFolderIcon', {  })
+api.nvim_set_hl(0, 'NvimTreeFileIcon', {  })
+api.nvim_set_hl(0, 'NvimTreeEmptyFolderName', {  })
+api.nvim_set_hl(0, 'NvimTreeOpenedFolderName', {  })
+api.nvim_set_hl(0, 'NvimTreeExecFile', {  })
+api.nvim_set_hl(0, 'NvimTreeOpenedFile', {  })
+api.nvim_set_hl(0, 'NvimTreeSpecialFile', {  })
+api.nvim_set_hl(0, 'NvimTreeImageFile', {  })
+api.nvim_set_hl(0, 'NvimTreeIndentMarker', {  })
+
+api.nvim_set_hl(0, 'NvimTreeGitDirty', { fg = theme.modified })
+api.nvim_set_hl(0, 'NvimTreeGitStaged', {  })
+api.nvim_set_hl(0, 'NvimTreeGitMerge', {  })
+api.nvim_set_hl(0, 'NvimTreeGitRenamed', { fg = theme.renamed })
+api.nvim_set_hl(0, 'NvimTreeGitNew', { fg = theme.added })
+api.nvim_set_hl(0, 'NvimTreeGitDeleted', { fg = theme.removed })
+api.nvim_set_hl(0, 'NvimTreeGitIgnored', { fg = theme.comment })

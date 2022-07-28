@@ -64,5 +64,5 @@ opt.swapfile = false
 
 cmd [[
   filetype plugin indent on
-  silent! colorscheme apple
+  silent! colorscheme github
 ]]

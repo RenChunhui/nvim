@@ -146,7 +146,7 @@ M.set_active = function (self)
   local mode = colors.mode .. self:statusline_mode()
   local diagnostic_error = colors.diagnostic_errors .. self:statusline_diagnostic_error()
   local diagnostic_warning = colors.diagnostic_warnings .. self:statusline_diagnostic_warning()
-  local diagnostic_info = colors.diagnostic_infos .. self:statusline_diagnostic_info()
+  -- local diagnostic_info = colors.diagnostic_infos .. self:statusline_diagnostic_info()
 
   -- right
   local progress = colors.lsp_progress .. self:statusline_lsp_progress()
@@ -161,7 +161,7 @@ M.set_active = function (self)
     mode,
     diagnostic_error,
     diagnostic_warning,
-    diagnostic_info,
+    -- diagnostic_info,
     "%=",
     progress,
     encode,

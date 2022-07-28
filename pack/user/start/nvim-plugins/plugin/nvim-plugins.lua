@@ -114,8 +114,13 @@ packer.startup({ function(use)
     keys = "<space>"
   }
 
+  -- Org mode
   use {
     'nvim-orgmode/orgmode',
+    requires = {
+      { 'akinsho/org-bullets.nvim', after = 'orgmode' },
+      { 'lukas-reineke/headlines.nvim', after = 'orgmode' }
+    },
     config = function()
       require('user-orgmode')
     end,

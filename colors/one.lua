@@ -27,6 +27,7 @@ local theme = {
   tag       = '#e06c75',
   pmenu     = '#242831',
   wildmenu  = '#393F4D',
+
   renamed   = '#33a0ff',
   added     = '#43d08a',
   modified  = '#e0c285',
