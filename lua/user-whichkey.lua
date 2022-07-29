@@ -8,6 +8,9 @@ wk.setup({
     ["<tab>"] = "TAB",
   },
   icons = {
+    breadcrumb = "»",
+    separator = "  ",
+    group = "+",
   },
   window = {
     border = 'none',

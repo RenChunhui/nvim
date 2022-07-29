@@ -159,7 +159,7 @@ api.nvim_set_hl(0, 'TSDebug', { })
 api.nvim_set_hl(0, 'TSDefine', { })
 api.nvim_set_hl(0, 'TSError', { })
 api.nvim_set_hl(0, 'TSException', {  })
-api.nvim_set_hl(0, 'TSField', { })
+api.nvim_set_hl(0, 'TSField', { fg = theme.fg })
 api.nvim_set_hl(0, 'TSFloat', { })
 api.nvim_set_hl(0, 'TSFunction', { fg = theme.method })
 api.nvim_set_hl(0, 'TSFuncBuiltin', { })
@@ -238,7 +238,7 @@ api.nvim_set_hl(0, 'StatusLineEncode', { bg = theme.bg_alt})
 -- nvim-cmp
 -------------------------------------------------
 
-api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', {})
+api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', { fg = theme.comment })
 api.nvim_set_hl(0, 'CmpItemAbbrMatch', {})
 api.nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', {})
 api.nvim_set_hl(0, 'CmpItemMenu', {})
@@ -249,9 +249,9 @@ api.nvim_set_hl(0, 'CmpItemKindEvent', {})
 
 api.nvim_set_hl(0, 'CmpItemKindText', {})
 api.nvim_set_hl(0, 'CmpItemKindEnum', {})
-api.nvim_set_hl(0, 'CmpItemKindKeyword', {})
+api.nvim_set_hl(0, 'CmpItemKindKeyword', { fg = theme.keyword })
 
-api.nvim_set_hl(0, 'CmpItemKindConstant', {})
+api.nvim_set_hl(0, 'CmpItemKindConstant', { fg = theme.constant })
 api.nvim_set_hl(0, 'CmpItemKindConstructor', {})
 api.nvim_set_hl(0, 'CmpItemKindReference', {})
 
@@ -261,14 +261,14 @@ api.nvim_set_hl(0, 'CmpItemKindClass', {})
 api.nvim_set_hl(0, 'CmpItemKindModule', {})
 api.nvim_set_hl(0, 'CmpItemKindOperator', {})
 
-api.nvim_set_hl(0, 'CmpItemKindVariable', {})
+api.nvim_set_hl(0, 'CmpItemKindVariable', { fg = theme.variable })
 api.nvim_set_hl(0, 'CmpItemKindFile', {})
 
 api.nvim_set_hl(0, 'CmpItemKindUnit', {})
 api.nvim_set_hl(0, 'CmpItemKindSnippet', {})
 api.nvim_set_hl(0, 'CmpItemKindFolder', {})
 
-api.nvim_set_hl(0, 'CmpItemKindMethod', {})
+api.nvim_set_hl(0, 'CmpItemKindMethod', { fg = theme.method })
 api.nvim_set_hl(0, 'CmpItemKindValue', {})
 api.nvim_set_hl(0, 'CmpItemKindEnumMember', {})
 
@@ -314,3 +314,14 @@ api.nvim_set_hl(0, 'NvimTreeGitRenamed', { fg = theme.renamed })
 api.nvim_set_hl(0, 'NvimTreeGitNew', { fg = theme.added })
 api.nvim_set_hl(0, 'NvimTreeGitDeleted', { fg = theme.removed })
 api.nvim_set_hl(0, 'NvimTreeGitIgnored', { fg = theme.comment })
+
+
+
+-------------------------------------------------
+-- telescope
+-------------------------------------------------
+
+api.nvim_set_hl(0, 'TelescopeNormal', { bg = theme.bg_alt })
+api.nvim_set_hl(0, 'TelescopeBorder', { fg = theme.fg_alt })
+api.nvim_set_hl(0, 'TelescopePromptPrefix', { fg = theme.fg })
+api.nvim_set_hl(0, 'TelescopeMultiSelection', { fg = theme.comment })

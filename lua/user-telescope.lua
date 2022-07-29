@@ -10,9 +10,13 @@ telescope.setup({
       i = {
         ["<esc>"] = actions.close
       }
-    }
+    },
+		prompt_prefix = '  ',
+		-- borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+    results_title = '',
   },
   pickers = {
+
   },
   extensions = {
 

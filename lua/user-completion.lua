@@ -39,10 +39,11 @@ cmp.setup({
   },
   window = {
     completion = {
-      completeopt = 'menu,menuone,noinsert'
+      completeopt = 'menu,menuone,noinsert',
+			border = 'rounded'
     },
     documentation = {
-      border = 'solid'
+      border = 'rounded'
     }
   },
   formatting = {
@@ -72,7 +73,6 @@ cmp.setup({
     end
   }),
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'orgmode' }
+    { name = 'nvim_lsp' }
   })
 })
