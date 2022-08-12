@@ -16,6 +16,7 @@ local theme = {
   accent = '#58a6ff',
   cursor = '#173B66',
   pmenu = '#161b22',
+  selection = '#1E4173',
 
   comment = '#8b949e',
   constant = '#79c0ff',
@@ -64,25 +65,25 @@ api.nvim_set_hl(0, 'CurSearch', { })
 api.nvim_set_hl(0, 'Cursor', { })
 api.nvim_set_hl(0, 'CursorIM', { })
 api.nvim_set_hl(0, 'CursorColumn', { })
-api.nvim_set_hl(0, 'CursorLine', { })
+api.nvim_set_hl(0, 'CursorLine', { bg = theme.selection })
 
 api.nvim_set_hl(0, 'Directory', { fg = theme.fg })
 
 -- Diff
-api.nvim_set_hl(0, 'DiffAdd', { fg = theme.added })
-api.nvim_set_hl(0, 'DiffChange', { fg = theme.modified })
-api.nvim_set_hl(0, 'DiffDelete', { fg = theme.removed })
-api.nvim_set_hl(0, 'DiffText', { fg = theme.renamed })
+api.nvim_set_hl(0, 'DiffAdd', { fg = theme.added, bg = theme.bg })
+api.nvim_set_hl(0, 'DiffChange', { fg = theme.modified, bg = theme.bg })
+api.nvim_set_hl(0, 'DiffDelete', { fg = theme.removed, bg = theme.bg })
+api.nvim_set_hl(0, 'DiffText', { fg = theme.renamed, bg = theme.bg })
 
 api.nvim_set_hl(0, 'EndOfBuffer', { fg = theme.bg })
 
 api.nvim_set_hl(0, 'TermCursor', { })
 api.nvim_set_hl(0, 'TermCursorNC', { })
-api.nvim_set_hl(0, 'ErrorMsg', { })
+api.nvim_set_hl(0, 'ErrorMsg', { fg = theme.removed })
 api.nvim_set_hl(0, 'WinSeparator', { })
 api.nvim_set_hl(0, 'Folded', { })
 api.nvim_set_hl(0, 'FoldColumn', { })
-api.nvim_set_hl(0, 'SignColumn', { bg = theme.bg })
+api.nvim_set_hl(0, 'SignColumn', { fg = theme.fg_alt, bg = theme.bg })
 api.nvim_set_hl(0, 'IncSearch', { })
 api.nvim_set_hl(0, 'Substitute', { })
 
@@ -90,11 +91,11 @@ api.nvim_set_hl(0, 'LineNr', { fg = theme.comment })
 api.nvim_set_hl(0, 'LineNrAbove', { })
 api.nvim_set_hl(0, 'LineNrBelow', { })
 api.nvim_set_hl(0, 'CursorLineNr', { fg = theme.fg })
-api.nvim_set_hl(0, 'CursorLineSign', { })
+api.nvim_set_hl(0, 'CursorLineSign', { fg = theme.fg_alt, bg = theme.bg })
 api.nvim_set_hl(0, 'CursorLineFold', { })
 api.nvim_set_hl(0, 'MatchParen', { })
 api.nvim_set_hl(0, 'ModeMsg', { })
-api.nvim_set_hl(0, 'MsgArea', { })
+api.nvim_set_hl(0, 'MsgArea', { fg = theme.comment })
 api.nvim_set_hl(0, 'MsgSeparator', { })
 api.nvim_set_hl(0, 'MoreMsg', { })
 api.nvim_set_hl(0, 'NonText', { fg = theme.bg })
