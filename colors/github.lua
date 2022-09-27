@@ -326,3 +326,12 @@ api.nvim_set_hl(0, 'TelescopeNormal', { bg = theme.bg_alt })
 api.nvim_set_hl(0, 'TelescopeBorder', { fg = theme.fg_alt })
 api.nvim_set_hl(0, 'TelescopePromptPrefix', { fg = theme.fg })
 api.nvim_set_hl(0, 'TelescopeMultiSelection', { fg = theme.comment })
+
+-------------------------------------------------
+-- dashboard
+-------------------------------------------------
+
+api.nvim_set_hl(0, 'DashboardHeader', { fg = theme.selection })
+api.nvim_set_hl(0, 'DashboardCenter', { fg = theme.fg })
+api.nvim_set_hl(0, 'DashboardShortCut', { fg = theme.comment })
+api.nvim_set_hl(0, 'DashboardFooter', { fg = theme.comment })

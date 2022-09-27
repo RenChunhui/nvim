@@ -23,6 +23,14 @@ packer.startup({ function(use)
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
 
+  use {
+    'williamboman/mason.nvim',
+    config = function()
+      require('user-mason')
+    end,
+    cmd = 'Mason'
+  }
+
   -- LSP
   use {
     'neovim/nvim-lspconfig',
@@ -112,6 +120,13 @@ packer.startup({ function(use)
       require('user-whichkey')
     end,
     keys = "<space>"
+  }
+
+  -- UI
+  use { 'glepnir/dashboard-nvim',
+    config = function()
+      require('user-dashboard')
+    end,
   }
 
   -- Formatter
