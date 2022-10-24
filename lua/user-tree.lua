@@ -9,6 +9,7 @@ require'nvim-tree'.setup {
     root_folder_modifier = ":~",
     special_files = {},
     icons = {
+      webdev_colors = true,
       show = {
         file = true,
         folder = true,
