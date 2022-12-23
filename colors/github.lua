@@ -1,7 +1,10 @@
-vim.cmd('hi clear')
+local cmd = vim.cmd
+local fn = vim.fn
 
-if vim.fn.exists('syntax_on') then
-  vim.cmd('syntax reset')
+cmd('hi clear')
+
+if fn.exists('syntax_on') then
+  cmd('syntax reset')
 end
 
 vim.g.colors_name = 'github'
@@ -335,3 +338,9 @@ api.nvim_set_hl(0, 'DashboardHeader', { fg = theme.selection })
 api.nvim_set_hl(0, 'DashboardCenter', { fg = theme.fg })
 api.nvim_set_hl(0, 'DashboardShortCut', { fg = theme.comment })
 api.nvim_set_hl(0, 'DashboardFooter', { fg = theme.comment })
+
+api.nvim_set_hl(0, '@keyword', { link = 'TSKeyword'})
+api.nvim_set_hl(0, '@conditional', { link = 'TSConditional' })
+api.nvim_set_hl(0, '@comment', { link = 'TSComment' })
+api.nvim_set_hl(0, '@include', { link = 'TSInclude' })
+api.nvim_set_hl(0, '@tag', { link = 'TSTag' })
