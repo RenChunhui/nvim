@@ -15,8 +15,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 		'https://ghproxy.com/https://github.com/wbthomason/packer.nvim', install_path })
 end
 
-cmd([[autocmd BufWritePost init.lua source <afile> | PackerCompile]])
-
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
 	return
@@ -25,82 +23,80 @@ end
 packer.startup({
 	function(use)
 		use 'wbthomason/packer.nvim'
-		use 'nvim-lua/popup.nvim'
-		use 'nvim-lua/plenary.nvim'
 
-		-- LSP
-		use {
-			'neovim/nvim-lspconfig',
-			config = function()
-				require('user-lspconfig')
-			end,
-			event = 'BufReadPre'
-		}
+    -- Dashboard
+    use {
+      'glepnir/dashboard-nvim',
+      config = function()
+        require('user-dashboard')
+      end
+    }
 
-		-- Completion
-		use {
-			'hrsh7th/nvim-cmp',
-			requires = {
-        'hrsh7th/cmp-nvim-lsp',
-        { 'L3MON4D3/LuaSnip', after = 'nvim-cmp'}
+    -- Native LSP
+    use {
+      'neovim/nvim-lspconfig',
+      after = 'cmp-nvim-lsp',
+      config = function()
+        require('user-lspconfig')
+      end
+    }
+
+    -- Completion
+    use {
+      'hrsh7th/nvim-cmp',
+      requires = {
+        { 'hrsh7th/cmp-nvim-lsp' },
+        { 'L3MON4D3/LuaSnip', after = 'nvim-cmp' }
       },
-			config = function()
-				require('user-cmp')
-			end,
-			event = 'InsertEnter'
-		}
+      event = 'InsertEnter',
+      config = function()
+        require('user-cmp')
+      end
+    }
 
-		-- Fuzzy Finder
-		use {
-			'nvim-telescope/telescope.nvim',
-			config = function()
-				require('user-telescope')
-			end,
-			cmd = 'Telescope'
-		}
+    -- Treesitter
+    use {
+      'nvim-treesitter/nvim-treesitter',
+      event = 'BufRead',
+      run = ':TSUpdate',
+      config = function()
+        require('user-treesitter')
+      end
+    }
+    use {
+      'nvim-treesitter/playground',
+      cmd = 'TSPlaygroundToggle',
+      config = function()
+        require('user-treesitter')
+      end
+    }
 
-		-- Treesitter
-		use {
-			'nvim-treesitter/nvim-treesitter',
-			config = function()
-				require('user-treesitter')
-			end,
-			event = 'BufRead'
-		}
-		use {
-			'nvim-treesitter/playground',
-			config = function()
-				require('user-playground')
-			end,
-			cmd = 'TSPlaygroundToggle'
-		}
+    -- File Explorer
+    use {
+      'nvim-tree/nvim-tree.lua',
+      cmd = { 'NvimTreeToggle', 'NvimTreeOpen' },
+      requires = {
+        'nvim-tree/nvim-web-devicons'
+      },
+      config = function()
+        require('user-tree')
+      end
+    }
 
-		-- Tree
-		use {
-			'kyazdani42/nvim-tree.lua',
-			config = function()
-				require('user-tree')
-			end,
-			cmd = { 'NvimTreeToggle', 'NvimTreeOpen' }
-		}
+    -- Keybindings
+    use {
+      'folke/which-key.nvim',
+      keys = '<space>',
+      config = function()
+        require('user-whichkey')
+      end
+    }
 
-		-- Git
-		use {
-			'lewis6991/gitsigns.nvim',
-			config = function()
-				require('user-gitsigns')
-			end,
-			event = 'BufRead'
-		}
-
-		-- Keybindings
-		use {
-			'folke/which-key.nvim',
-			config = function()
-				require('user-whichkey')
-			end,
-			keys = "<space>"
-		}
+    -- Formatter
+    use {
+      'windwp/nvim-autopairs',
+      event = 'InsertEnter'
+    }
 
 		if packer_bootstrap ~= nil then
 			require('packer').sync()
@@ -120,7 +116,10 @@ packer.startup({
 		profile = {
 			enable = true,
 			threshold = 1
-		}
+		},
+    git = {
+      default_url_format = 'https://ghproxy.com/https://github.com/%s'
+    }
 	}
 })
 
@@ -162,6 +161,7 @@ opt.number = true
 opt.showcmd = true
 -- 突出显示当前行
 opt.cursorline = true
+opt.cmdheight = 0
 
 -- 使用 2 个空格
 opt.tabstop = 2
@@ -186,5 +186,5 @@ opt.swapfile = false
 
 cmd([[
   filetype plugin indent on
-  silent! colorscheme github
+  silent! colorscheme primer
 ]])
