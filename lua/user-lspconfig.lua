@@ -1,71 +1,56 @@
 local fn = vim.fn
 
 -- Change diagnostic symbols in the sign column
-local signs = {Error = "", Warn = "", Hint = "", Info = ""}
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
-  fn.sign_define(hl, {text = icon, texthl = hl, numhl = ""})
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
--- Go to definition in a split window
-local function goto_definition(split_cmd)
-  local util = vim.lsp.util
-  local log = require("vim.lsp.log")
-  local api = vim.api
 
-  -- note, this handler style is for neovim 0.5.1/0.6, if on 0.5, call with function(_, method, result)
-  local handler = function(_, result, ctx)
-    if result == nil or vim.tbl_isempty(result) then
-      local _ = log.info() and log.info(ctx.method, "No location found")
-      return nil
-    end
 
-    if split_cmd then
-      vim.cmd(split_cmd)
-    end
+-- Print diagnostics to message area
+function PrintDiagnostics(opts, bufnr, line_nr, client_id)
+  bufnr = bufnr or 0
+  line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
+  opts = opts or {['lnum'] = line_nr}
 
-    if vim.tbl_islist(result) then
-      util.jump_to_location(result[1])
+  local line_diagnostics = vim.diagnostic.get(bufnr, opts)
+  if vim.tbl_isempty(line_diagnostics) then return end
 
-      if #result > 1 then
-        util.set_qflist(util.locations_to_items(result))
-        api.nvim_command("copen")
-        api.nvim_command("wincmd p")
-      end
-    else
-      util.jump_to_location(result)
+  local diagnostic_message = ""
+  for i, diagnostic in ipairs(line_diagnostics) do
+    diagnostic_message = diagnostic_message .. string.format("%d: %s", i, diagnostic.message or "")
+    print(diagnostic_message)
+    if i ~= #line_diagnostics then
+      diagnostic_message = diagnostic_message .. "\n"
     end
   end
-
-  return handler
+  vim.api.nvim_echo({{diagnostic_message, "Normal"}}, false, {})
 end
 
-vim.lsp.handlers["textDocument/definition"] = goto_definition('split')
+vim.cmd [[ autocmd! CursorHold * lua PrintDiagnostics() ]]
 
--- Enable update on insert
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  {
-    underline = true,
-    virtual_text = {
-      spacing = 5,
-      severity_limit = 'Warning',
-    },
-    update_in_insert = true,
-  }
-)
-
--- nvim-cmp supports additional completion capabilities
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Enable the following language servers
-local servers = {'bashls','cssls','gopls','html','jsonls','tailwindcss','tsserver','volar','yamlls'}
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local servers = {'bashls','cssls','gopls','html','jsonls','tailwindcss','tsserver','yamlls'}
 for _, lsp in ipairs(servers) do
   require('lspconfig')[lsp].setup {
     -- on_attach = on_attach,
     capabilities = capabilities,
   }
 end
+
+-- Vue language server
+require('lspconfig').volar.setup{
+  capabilities = capabilities,
+  init_options = {
+    typescript = {
+      tsdk = vim.fn.expand('$HOME') .. '/.local/share/yarn/global/node_modules/typescript/lib'
+    }
+  }
+}
 
 -- Lua language server
 require('lspconfig').sumneko_lua.setup {
@@ -92,3 +77,15 @@ require('lspconfig').sumneko_lua.setup {
     }
   }
 }
+
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
+    underline = true,
+    virtual_text = {
+      spacing = 5,
+      severity_limit = 'Warning',
+    },
+    update_in_insert = true,
+  }
+)

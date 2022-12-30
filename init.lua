@@ -83,6 +83,18 @@ packer.startup({
       end
     }
 
+    -- Fuzzy Finder
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim'
+      },
+      cmd = 'Telescope',
+      config = function()
+        require('user-telescope')
+      end
+    }
+
     -- Keybindings
     use {
       'folke/which-key.nvim',
@@ -95,7 +107,18 @@ packer.startup({
     -- Formatter
     use {
       'windwp/nvim-autopairs',
-      event = 'InsertEnter'
+      event = 'InsertEnter',
+      config = function()
+        require('user-autopairs')
+      end
+    }
+
+    use {
+      'windwp/nvim-ts-autotag',
+      ft = { 'html', 'vue' },
+      config = function()
+        require('user-autotag')
+      end
     }
 
 		if packer_bootstrap ~= nil then
@@ -183,6 +206,8 @@ opt.backup = false
 opt.writebackup = false
 -- 禁用交换文件
 opt.swapfile = false
+
+opt.pumheight = 20
 
 cmd([[
   filetype plugin indent on

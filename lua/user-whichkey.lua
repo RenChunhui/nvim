@@ -18,8 +18,19 @@ wk.setup({
     margin = { 0, 0, 0, 0 },
     padding = { 1, 1, 1, 1 },
   },
+  show_help = true,
+  show_keys = true,
+  triggers = "auto",
   layout = {
     height = { min = 3, max = 25 }
+  },
+  triggers_blacklist = {
+    i = { "j", "k" },
+    v = { "j", "k" },
+  },
+  disable = {
+    buftypes = {},
+    filetypes = { 'TelescopePrompt' }
   }
 })
 
@@ -37,7 +48,7 @@ wk.register({
     name = 'Buffers',
     D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'Declaration' },
     d = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'Definition' },
-    f = { '<cmd>lua vim.lsp.buf.formatting()<cr>', 'Format' },
+    f = { '<cmd>lua vim.lsp.buf.format { async = true }<cr>', 'Format' },
     h = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover' },
     r = { '<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename' }
   },
@@ -47,7 +58,7 @@ wk.register({
   f = {
     name = 'Find',
     b = { '<cmd>Telescope buffers<cr>', 'Buffer' },
-    f = { '<cmd>Telescope find_files<cr>', 'File', },
+    f = { '<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>', 'File', },
     h = { '<cmd>Telescope search_history<cr>', 'History' }
   },
   g = {
