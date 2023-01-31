@@ -113,6 +113,16 @@ packer.startup({
       end
     }
 
+    -- Database
+    use {
+      'kristijanhusak/vim-dadbod-ui',
+      requires = {
+        { 'tpope/vim-dadbod', opt = true },
+        { 'kristijanhusak/vim-dadbod-completion', opt = true }
+      },
+      cmd = { 'DBUIToggle', 'DBUIAddConnection', 'DBUI', 'DBUIFindBuffer', 'DBUIRenameBuffer' }
+    }
+
     use {
       'windwp/nvim-ts-autotag',
       ft = { 'html', 'vue' },

@@ -34,7 +34,7 @@ vim.cmd [[ autocmd! CursorHold * lua PrintDiagnostics() ]]
 
 -- Enable the following language servers
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = {'bashls','cssls','gopls','html','jsonls','tailwindcss','tsserver','yamlls'}
+local servers = {'bashls','cssls','gopls','html','jsonls','tailwindcss','tsserver','yamlls','pyright'}
 for _, lsp in ipairs(servers) do
   require('lspconfig')[lsp].setup {
     -- on_attach = on_attach,

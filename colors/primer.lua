@@ -135,10 +135,10 @@ hl('Comment',{ fg = colors.comment })                               -- any comme
 
 hl('Constant',{ fg = colors.constant })                             -- any constant
 hl('String',{ fg = colors.string })                                 -- a string constant: "this is a string"
-hl('Character',{ fg = colors.colors })                              -- a character constant: 'c', '\n'
-hl('Number',{ fg = colors.colors })                                 -- a number constant: 234, 0xff
-hl('Boolean',{ fg = colors.colors })                                -- a boolean constant: TRUE, false
-hl('Float',{ fg = colors.colors })                                  -- a floating point constant: 2.3e10
+hl('Character',{ fg = colors.constant })                            -- a character constant: 'c', '\n'
+hl('Number',{ fg = colors.constant })                               -- a number constant: 234, 0xff
+hl('Boolean',{ fg = colors.constant })                              -- a boolean constant: TRUE, false
+hl('Float',{ fg = colors.constant })                                -- a floating point constant: 2.3e10
 
 hl('Identifier',{ fg = colors.variable })                           -- any variable name
 hl('Function',{ fg = colors.method })                               -- function name (also: methods for classes)
@@ -380,3 +380,20 @@ hl('TelescopeBorder', { fg = colors.panel_bg, bg = colors.bg })
 hl('TelescopeTitle', { fg = colors.fg, bg = colors.panel_bg })
 hl('TelescopePromptCounter', { fg = colors.comment })
 hl('TelescopeMatching', { bg = colors.panel_bg })
+
+
+
+-------------------------------------------------
+-- statusline
+-------------------------------------------------
+
+hl('StatusLineMode', { bg = colors.status_bg })
+hl('StatusLineGitBranch', { bg = colors.status_bg })
+hl('StatusLineGitCommitAdded', { fg = colors.added, bg = colors.status_bg })
+hl('StatusLineGitCommitChanged', { fg = colors.modified, bg = colors.status_bg })
+hl('StatusLineGitCommitRemoved', { fg = colors.removed, bg = colors.status_bg })
+hl('StatusLineDiagnosticError', { fg = colors.removed, bg = colors.status_bg })
+hl('StatusLineDiagnosticWarning', { fg = colors.modified, bg = colors.status_bg })
+hl('StatusLineLspProgress', { fg = colors.comment, bg = colors.status_bg })
+hl('StatusLineFileType', { bg = colors.status_bg })
+hl('StatusLineEncode', { bg = colors.status_bg })
