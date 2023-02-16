@@ -27,6 +27,7 @@ packer.startup({
     -- Dashboard
     use {
       'glepnir/dashboard-nvim',
+			event = 'VimEnter',
       config = function()
         require('user-dashboard')
       end

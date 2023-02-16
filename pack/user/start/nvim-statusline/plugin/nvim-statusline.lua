@@ -113,24 +113,26 @@ end
 -- filetype
 M.statusline_filetype = function ()
   local filename, extension = fn.expand("%:t"), fn.expand("%:e")
+  local icon, color = require'nvim-web-devicons'.get_icon(filename,extension,{default = true})
+  local filetype = vim.bo.filetype
 
-  -- if require'nvim-web-devicons'.has_loaded() then
-  --   local icon, color = require'nvim-web-devicons'.get_icon_color(filename,extension)
-  --   local is_nil = icon ~= nil
+  if filetype == '' then return '' end
 
-  --   if icon ~= nil and color ~= nil then
-  --     vim.api.nvim_command("hi StatusLineFileType guifg=" .. color .. " guibg=#21252b")
-  --   end
-
-  --   return is_nil and string.format(" %s ",icon) or ""
+  -- if icon ~= nil and color ~= nil then
+  --   vim.api.nvim_set_hl(0, 'StatusLineFileType', { fg = color })
   -- end
 
-  return string.format(" %s ", extension):upper()
+  return string.format(' %s %s ', icon, filetype):lower()
 end
 
 -- encode
 M.statusline_encode = function()
   return string.format("%s", vim.bo.fileencoding):upper()
+end
+
+-- Line
+M.statusline_line_col = function()
+  return ' Ln %l, Col %c '
 end
 
 
