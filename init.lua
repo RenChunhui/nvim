@@ -3,158 +3,109 @@ local g = vim.g
 local cmd = vim.cmd
 local fn = vim.fn
 local api = vim.api
-local packer_bootstrap = nil
 
-local install_path = fn.expand('$HOME') .. "/.config/nvim/pack/vendor/start/packer.nvim"
-local package_root = fn.expand('$HOME') .. "/.config/nvim/pack"
-local compile_path = fn.expand('$HOME') .. "/.config/nvim/plugin/packer_compiled.lua"
-
-if fn.empty(fn.glob(install_path)) > 0 then
-	api.nvim_echo({ { 'Installing packer.nvim', 'Type' } }, true, {})
-	packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1',
-		'https://ghproxy.com/https://github.com/wbthomason/packer.nvim', install_path })
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-	return
-end
+require("lazy").setup({
+  -- Dashboard
+  -- {
+  --   'glepnir/dashboard-nvim',
+  --   event = 'VimEnter',
+  --   config = function()
+  --     require('user-dashboard')
+  --   end
+  -- },
 
-packer.startup({
-	function(use)
-		use 'wbthomason/packer.nvim'
+  -- Native LSP
+  -- {
+  --   'neovim/nvim-lspconfig',
+  --   after = 'cmp-nvim-lsp',
+  --   config = function()
+  --     require('user-lspconfig')
+  --   end
+  -- },
 
-    -- Dashboard
-    use {
-      'glepnir/dashboard-nvim',
-			event = 'VimEnter',
-      config = function()
-        require('user-dashboard')
-      end
-    }
+  -- Completion
+  -- {
+  --   'hrsh7th/nvim-cmp',
+  --   dependencies = {
+  --     { 'hrsh7th/cmp-nvim-lsp' },
+  --     { 'L3MON4D3/LuaSnip', after = 'nvim-cmp' }
+  --   },
+  --   event = 'InsertEnter',
+  --   config = function()
+  --     require('user-cmp')
+  --   end
+  -- },
 
-    -- Native LSP
-    use {
-      'neovim/nvim-lspconfig',
-      after = 'cmp-nvim-lsp',
-      config = function()
-        require('user-lspconfig')
-      end
-    }
+  -- Treesitter
+  {
+    'nvim-treesitter/nvim-treesitter',
+    event = 'BufRead',
+    run = ':TSUpdate',
+    config = function()
+      require('user-treesitter')
+    end
+  },
+  {
+    'nvim-treesitter/playground',
+    cmd = 'TSPlaygroundToggle',
+    config = function()
+      require('user-treesitter')
+    end
+  },
 
-    -- Completion
-    use {
-      'hrsh7th/nvim-cmp',
-      requires = {
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'L3MON4D3/LuaSnip', after = 'nvim-cmp' }
-      },
-      event = 'InsertEnter',
-      config = function()
-        require('user-cmp')
-      end
-    }
+  -- File Explorer
+  {
+    'nvim-tree/nvim-tree.lua',
+    cmd = 'NvimTreeToggle',
+    config = function()
+      require('user-tree')
+    end
+  },
 
-    -- Treesitter
-    use {
-      'nvim-treesitter/nvim-treesitter',
-      event = 'BufRead',
-      run = ':TSUpdate',
-      config = function()
-        require('user-treesitter')
-      end
-    }
-    use {
-      'nvim-treesitter/playground',
-      cmd = 'TSPlaygroundToggle',
-      config = function()
-        require('user-treesitter')
-      end
-    }
+  -- Fuzzy Finder
+  {
+    'nvim-telescope/telescope.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+    },
+    cmd = 'Telescope',
+    config = function()
+      require('user-telescope')
+    end
+  },
 
-    -- File Explorer
-    use {
-      'nvim-tree/nvim-tree.lua',
-      cmd = { 'NvimTreeToggle', 'NvimTreeOpen' },
-      requires = {
-        'nvim-tree/nvim-web-devicons'
-      },
-      config = function()
-        require('user-tree')
-      end
-    }
+  -- Keybindings
+  {
+    'folke/which-key.nvim',
+    keys = '<space>',
+    config = function()
+      require('user-whichkey')
+    end
+  },
 
-    -- Fuzzy Finder
-    use {
-      'nvim-telescope/telescope.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim'
-      },
-      cmd = 'Telescope',
-      config = function()
-        require('user-telescope')
-      end
-    }
+  -- Formatter
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = function()
+      require('user-autopairs')
+    end
+  }
+},{
 
-    -- Keybindings
-    use {
-      'folke/which-key.nvim',
-      keys = '<space>',
-      config = function()
-        require('user-whichkey')
-      end
-    }
-
-    -- Formatter
-    use {
-      'windwp/nvim-autopairs',
-      event = 'InsertEnter',
-      config = function()
-        require('user-autopairs')
-      end
-    }
-
-    -- Database
-    use {
-      'kristijanhusak/vim-dadbod-ui',
-      requires = {
-        { 'tpope/vim-dadbod', opt = true },
-        { 'kristijanhusak/vim-dadbod-completion', opt = true }
-      },
-      cmd = { 'DBUIToggle', 'DBUIAddConnection', 'DBUI', 'DBUIFindBuffer', 'DBUIRenameBuffer' }
-    }
-
-    use {
-      'windwp/nvim-ts-autotag',
-      ft = { 'html', 'vue' },
-      config = function()
-        require('user-autotag')
-      end
-    }
-
-		if packer_bootstrap ~= nil then
-			require('packer').sync()
-		end
-	end,
-	config = {
-		package_root = package_root,
-		compile_path = compile_path,
-		plugin_package = "vendor",
-		display = {
-			open_fn = function()
-				return require('packer.util').float {
-					border = 'rounded'
-				}
-			end
-		},
-		profile = {
-			enable = true,
-			threshold = 1
-		},
-    git = {
-      default_url_format = 'https://ghproxy.com/https://github.com/%s'
-    }
-	}
 })
 
 g.mapleader = " "
