@@ -10,26 +10,24 @@ local cmd = vim.cmd
 local fn = vim.fn
 local api = vim.api
 local colors = {
-  fg = '#c9d1d9',
-  bg = '#0d1117',
+  fg         = '#c9d1d9',
+  bg         = '#0d1117',
   sidebar_fg = '#c9d1d9',
   sidebar_bg = '#010409',
-  status_fg = '#8b949e',
-  status_bg = '#010409',
-  panel_bg = '#161b22',
-  cursor = '#191C21',
-
-  comment = '#8b949e',
-  constant = '#79c0ff',
-  string = '#a5d6ff',
-  keyword = '#ff7b72',
-  variable = '#ffa657',
-  method = '#d2a8ff',
-
-  renamed   = '#58a6ff',
-  added     = '#3fb950',
-  modified  = '#d29922',
-  removed   = '#f85149',
+  status_fg  = '#8b949e',
+  status_bg  = '#010409',
+  panel_bg   = '#161b22',
+  cursor     = '#191C21',
+  comment    = '#8b949e',
+  constant   = '#79c0ff',
+  string     = '#a5d6ff',
+  keyword    = '#ff7b72',
+  variable   = '#ffa657',
+  method     = '#d2a8ff',
+  renamed    = '#58a6ff',
+  added      = '#3fb950',
+  modified   = '#d29922',
+  removed    = '#f85149',
 }
 local theme = {
   syntax = {
@@ -121,7 +119,7 @@ local theme = {
   },
 }
 
-local function hl(group,opts)
+local function hl(group, opts)
   api.nvim_set_hl(0, group, opts)
 end
 
@@ -131,28 +129,28 @@ end
 -- Standard Highlighting
 -------------------------------------------------
 
-hl('Comment',{ fg = colors.comment })                               -- any comment
+hl('Comment', { fg = colors.comment }) -- any comment
 
-hl('Constant',{ fg = colors.constant })                             -- any constant
-hl('String',{ fg = colors.string })                                 -- a string constant: "this is a string"
-hl('Character',{ fg = colors.constant })                            -- a character constant: 'c', '\n'
-hl('Number',{ fg = colors.constant })                               -- a number constant: 234, 0xff
-hl('Boolean',{ fg = colors.constant })                              -- a boolean constant: TRUE, false
-hl('Float',{ fg = colors.constant })                                -- a floating point constant: 2.3e10
+hl('Constant', { fg = colors.constant }) -- any constant
+hl('String', { fg = colors.string }) -- a string constant: "this is a string"
+hl('Character', { fg = colors.constant }) -- a character constant: 'c', '\n'
+hl('Number', { fg = colors.constant }) -- a number constant: 234, 0xff
+hl('Boolean', { fg = colors.constant }) -- a boolean constant: TRUE, false
+hl('Float', { fg = colors.constant }) -- a floating point constant: 2.3e10
 
-hl('Identifier',{ fg = colors.variable })                           -- any variable name
-hl('Function',{ fg = colors.method })                               -- function name (also: methods for classes)
+hl('Identifier', { fg = colors.variable }) -- any variable name
+hl('Function', { fg = colors.method }) -- function name (also: methods for classes)
 
-hl('Statement',{ fg = colors.keyword })                             -- any statement
-hl('Conditional',{ fg = colors.keyword })                           -- if, then, else, endif, switch, etc.
-hl('Repeat',{ fg = colors.keyword })                                -- for, do, while, etc.
-hl('Label',{ fg = colors.keyword })                                 -- case, default, etc.
-hl('Operator',{ fg = colors.keyword })                              -- "sizeof", "+", "*", etc.
-hl('Keyword',{ fg = colors.keyword })                               -- any other keyword
-hl('Exception',{ fg = colors.keyword })                             -- try, catch, throw
+hl('Statement', { fg = colors.keyword }) -- any statement
+hl('Conditional', { fg = colors.keyword }) -- if, then, else, endif, switch, etc.
+hl('Repeat', { fg = colors.keyword }) -- for, do, while, etc.
+hl('Label', { fg = colors.keyword }) -- case, default, etc.
+hl('Operator', { fg = colors.keyword }) -- "sizeof", "+", "*", etc.
+hl('Keyword', { fg = colors.keyword }) -- any other keyword
+hl('Exception', { fg = colors.keyword }) -- try, catch, throw
 
 -- hl('PreProc',{  })                              -- generic Preprocessor
-hl('Include',{ fg = colors.keyword })                               -- preprocessor #include
+hl('Include', { fg = colors.keyword }) -- preprocessor #include
 -- hl('Define',{  })                               -- preprocessor #define
 -- hl('Macro',{  })                                -- same as Define
 -- hl('PreCondit',{  })                            -- preprocessor #if, #else, #endif, etc.
@@ -164,7 +162,7 @@ hl('Include',{ fg = colors.keyword })                               -- preproces
 
 -- hl('Special',{ fg = colors.colors })                              -- any special symbol
 -- hl('SpecialChar',{  })                          -- special character in a constant
-hl('Tag',{ fg = theme.syntax.tag })             -- you can use CTRL-] on this
+hl('Tag', { fg = theme.syntax.tag }) -- you can use CTRL-] on this
 -- hl('Delimiter',{  })                            -- character that needs attention
 -- hl('SpecialComment',{  })                       -- special things inside a comment
 -- hl('Debug',{  })                                -- debugging statements
@@ -184,7 +182,7 @@ hl('Tag',{ fg = theme.syntax.tag })             -- you can use CTRL-] on this
 -------------------------------------------------
 
 hl('@text.literal', { link = 'Comment' })
-hl('@text.reference',{ link = 'Identifier' })
+hl('@text.reference', { link = 'Identifier' })
 -- hl('@text.title',{ link = 'Title' })
 -- hl('@text.uri ',{ link = 'Underlined' })
 -- hl('@text.underline',{ link = 'Underlined' })
@@ -193,49 +191,49 @@ hl('@text.reference',{ link = 'Identifier' })
 -- hl('@comment',{ link = 'Comment' })
 -- hl('@punctuation',{ link = 'Delimiter' })
 
-hl('@constant',{ link = 'Constant' })
+hl('@constant', { link = 'Constant' })
 -- hl('@constant.builtin',{ link = 'Special' })
 -- hl('@constant.macro',{ link = 'Define' })
 -- hl('@define',{ link = 'Define' })
 -- hl('@macro',{ link = 'Macro' })
-hl('@string',{ link = 'String' })
+hl('@string', { link = 'String' })
 -- hl('@string.escape',{ link = 'SpecialChar' })
 -- hl('@string.special',{ link = 'SpecialChar' })
-hl('@character',{ link = 'Character' })
+hl('@character', { link = 'Character' })
 -- hl('@character.special',{ link = 'SpecialChar' })
-hl('@number',{ link = 'Number' })
-hl('@boolean',{ link = 'Boolean' })
-hl('@float',{ link = 'Float' })
+hl('@number', { link = 'Number' })
+hl('@boolean', { link = 'Boolean' })
+hl('@float', { link = 'Float' })
 
 -- hl('@function',{ link = 'Function' })
 -- hl('@function.builtin',{ link = 'Special' })
 hl('@function.call', { fg = colors.colors })
 -- hl('@function.macro',{ link = 'Macro' })
 
-hl('@parameter',{ link = 'Identifier' })
-hl('@method',{ link = 'Function' })
-hl('@field',{ link = 'Identifier' })
-hl('@property',{ link = 'Identifier' })
+hl('@parameter', { link = 'Identifier' })
+hl('@method', { link = 'Function' })
+hl('@field', { link = 'Identifier' })
+hl('@property', { link = 'Identifier' })
 -- hl('@constructor',{ link = 'Special' })
 
-hl('@conditional',{ link = 'Conditional' })
+hl('@conditional', { link = 'Conditional' })
 -- hl('@repeat',{ link = 'Repeat' })
 -- hl('@label',{ link = 'Label' })
-hl('@operator',{ link = 'Operator' })
-hl('@keyword',{ link = 'Keyword' })
+hl('@operator', { link = 'Operator' })
+hl('@keyword', { link = 'Keyword' })
 -- hl('@exception',{ link = 'Exception' })
 
-hl('@variable',{ link = 'Identifier' })
-hl('@type',{ link = 'Type' })
+hl('@variable', { link = 'Identifier' })
+hl('@type', { link = 'Type' })
 hl('@type.builtin', { fg = colors.colors })
 -- hl('@type.definition',{ link = 'Typedef' })
 -- hl('@storageclass',{ link = 'StorageClass' })
 -- hl('@structure',{ link = 'Structure' })
-hl('@namespace',{ link = 'Identifier' })
-hl('@include',{ link = 'Include' })
+hl('@namespace', { link = 'Identifier' })
+hl('@include', { link = 'Include' })
 -- hl('@preproc',{ link = 'PreProc' })
 -- hl('@debug',{ link = 'Debug' })
-hl('@tag',{ link = 'Tag' })
+hl('@tag', { link = 'Tag' })
 
 -- Lua
 hl('@variable.lua', { fg = theme.fg.default })
