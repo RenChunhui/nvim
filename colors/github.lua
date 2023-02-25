@@ -4,7 +4,7 @@ if vim.fn.exists('syntax_on') then
   vim.cmd('syntax reset')
 end
 
-vim.g.colors_name = 'primer'
+vim.g.colors_name = 'github'
 
 local cmd = vim.cmd
 local fn = vim.fn
@@ -17,6 +17,7 @@ local colors = {
   status_fg  = '#8b949e',
   status_bg  = '#010409',
   panel_bg   = '#161b22',
+
   cursor     = '#191C21',
   comment    = '#8b949e',
   constant   = '#79c0ff',
@@ -24,6 +25,7 @@ local colors = {
   keyword    = '#ff7b72',
   variable   = '#ffa657',
   method     = '#d2a8ff',
+
   renamed    = '#58a6ff',
   added      = '#3fb950',
   modified   = '#d29922',
