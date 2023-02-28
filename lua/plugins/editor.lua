@@ -14,7 +14,7 @@ return {
           {
             desc = ' Vim',
             group = '@constant',
-            action = 'e $MYVIMRC',
+            action = 'edit $MYVIMRC',
             key = 'v'
           },
           {

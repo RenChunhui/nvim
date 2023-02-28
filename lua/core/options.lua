@@ -69,5 +69,5 @@ opt.pumheight = 20
 
 vim.cmd([[
   filetype plugin indent on
-  silent! colorscheme primer
+  silent! colorscheme xcode
 ]])

@@ -1,4 +1,5 @@
 .DS_Store
+/.vscode
 /lua-language-server
 /pack/vendor
 /plugin/packer_compiled.lua
