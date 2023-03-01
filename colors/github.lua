@@ -16,6 +16,7 @@ require('modules.themes').setup({
     bg_overlay = '#161b22',
 
     cursor     = '#191C21',
+    highlight  = '#58a6ff',
 
     comment    = '#8b949e',
     constant   = '#79c0ff',
@@ -23,6 +24,7 @@ require('modules.themes').setup({
     keyword    = '#ff7b72',
     variable   = '#ffa657',
     method     = '#d2a8ff',
+    character  = '#79C0FF',
 
     renamed    = '#58a6ff',
     added      = '#3fb950',
@@ -30,6 +32,27 @@ require('modules.themes').setup({
     removed    = '#f85149',
   },
   light = {
+    fg         = '#24292f',
+    bg         = '#ffffff',
+    fg_inset   = '#c9d1d9',
+    bg_inset   = '#f6f8fa',
+    fg_overlay = '#8b949e',
+    bg_overlay = '#ffffff',
 
+    cursor     = '#191C21',
+    highlight  = '#0969da',
+
+    comment    = '#8b949e',
+    constant   = '#79c0ff',
+    string     = '#a5d6ff',
+    keyword    = '#ff7b72',
+    variable   = '#ffa657',
+    method     = '#d2a8ff',
+    character  = '#79C0FF',
+
+    renamed    = '#58a6ff',
+    added      = '#3fb950',
+    modified   = '#d29922',
+    removed    = '#f85149',
   }
 })
