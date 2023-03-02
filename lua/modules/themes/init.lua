@@ -9,6 +9,7 @@ function M.setup(opts)
 
   -------------------------------------------------
   -- Standard Highlighting
+  -- @see https://neovim.io/doc/user/syntax.html
   -------------------------------------------------
 
   hl('Comment', { fg = color.comment })
@@ -23,13 +24,13 @@ function M.setup(opts)
   hl('Identifier', { fg = color.variable })
   hl('Function', { fg = color.method })
 
-  hl('Statement', { fg = color.keyword })
+  hl('Statement', { fg = color.statement })
   hl('Conditional', { link = 'Statement' })
-  hl('Repeat', { fg = color.keyword })
-  hl('Label', { fg = color.keyword })
-  hl('Operator', { fg = color.keyword })
-  hl('Keyword', { fg = color.keyword })
-  hl('Exception', { fg = color.keyword })
+  hl('Repeat', { link = 'Statement' })
+  hl('Label', { link = 'Statement' })
+  hl('Operator', { link = 'Statement' })
+  hl('Keyword', { link = 'Statement' })
+  hl('Exception', { link = 'Statement' })
 
   -- hl('PreProc', {})
   -- hl('Include', {})
@@ -142,7 +143,7 @@ function M.setup(opts)
 
   -- hl('TermCursor', {})
   -- hl('TermCursorNC', {})
-  -- hl('ErrorMsg', {})
+  hl('ErrorMsg', { fg = color.removed })
   -- hl('WinSeparator', {})
   -- hl('Folded', {})
   -- hl('FoldColumn', {})
@@ -166,10 +167,10 @@ function M.setup(opts)
   -- hl('NormalFloat', {})
   -- hl('NormalNC', {})
 
-  hl('Pmenu', { fg = color.fg_overlay, bg = color.bg_overlay })
-  hl('PmenuSel', { fg = color.fg })
-  hl('PmenuSbar', { fg = color.comment })
-  hl('PmenuThumb', { bg = color.bg_overlay })
+  hl('Pmenu', { fg = color.comment, bg = color.bg_overlay })
+  hl('PmenuSel', { fg = color.fg_overlay })
+  hl('PmenuSbar', { bg = color.bg_overlay })
+  hl('PmenuThumb', { bg = color.fg })
 
   -- hl('Question', {})
   -- hl('QuickFixLine', {})
@@ -181,7 +182,7 @@ function M.setup(opts)
   -- hl('SpellLocal', {})
   -- hl('SpellRare', {})
 
-  -- hl('StatusLine', {})
+  hl('StatusLine', {fg = color.fg_inset, bg = color.bg_inset})
   -- hl('StatusLineNC', {})
   hl('VertSplit', { fg = color.bg, bg = color.bg })
 
@@ -218,7 +219,23 @@ function M.setup(opts)
   -- NvimTree
   -------------------------------------------------
   hl('NvimTreeNormal', { fg = color.fg_inset, bg = color.bg_inset })
-  hl('NvimTreeEndOfBuffer', { fg = color.bg_inset })
+  -- hl('NvimTreeFileDirty',{})
+  -- hl('NvimTreeFileStaged',{})
+  -- hl('NvimTreeFileMerge',{})
+  hl('NvimTreeFileRenamed',{ fg = color.renamed })
+  hl('NvimTreeFileNew', { fg = color.added })
+  hl('NvimTreeFileDeleted', { fg = color.removed })
+  hl('NvimTreeFileIgnored', { fg = color.comment })
+
+
+
+  -------------------------------------------------
+  -- NvimTree
+  -------------------------------------------------
+
+  hl('BufferLineFill', { bg = color.bg_inset })
+  hl('BufferLineBackground', { fg = color.comment, bg = color.bg_inset })
+  hl('BufferLineTabSelected', { fg = color.fg, bg = color.bg, bold = true })
 
   -------------------------------------------------
   -- which key
@@ -230,6 +247,17 @@ function M.setup(opts)
   hl('WhichKeyDesc', {})
   hl('WhichKeyFloat', { fg = color.fg, bg = color.bg_overlay })
   hl('WhichKeyValue', { fg = color.comment })
+
+
+
+  -------------------------------------------------
+  -- telescope
+  -------------------------------------------------
+
+  hl('TelescopeNormal', { fg = color.fg_overlay, bg = color.bg_overlay })
+  hl('TelescopeBorder', { fg = color.bg_overlay, bg = color.bg_overlay })
+  hl('TelescopeSelection', { bg = color.bg_inset })
+  hl('TelescopePromptPrefix', { fg = color.highlight })
 end
 
 return M
