@@ -80,14 +80,6 @@ return {
     end
   },
   {
-    'nvim-lualine/lualine.nvim',
-    event = 'VeryLazy',
-    dependencies = { 'nvim-lualine/lualine.nvim' },
-    opts = {
-      icons_enabled = true
-    }
-  },
-  {
     'lewis6991/gitsigns.nvim',
     event = { "BufReadPre", "BufNewFile" },
     opts = {

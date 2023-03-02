@@ -17,11 +17,12 @@ require('modules.themes').setup({
 
     cursor     = '#161b22',
     highlight  = '#58a6ff',
+    border     = '#30363d',
 
     comment    = '#8b949e',
     constant   = '#79c0ff',
     string     = '#a5d6ff',
-    statement    = '#ff7b72',
+    statement  = '#ff7b72',
     variable   = '#ffa657',
     method     = '#d2a8ff',
     character  = '#79C0FF',

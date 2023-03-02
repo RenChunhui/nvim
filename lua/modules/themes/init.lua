@@ -182,8 +182,8 @@ function M.setup(opts)
   -- hl('SpellLocal', {})
   -- hl('SpellRare', {})
 
-  hl('StatusLine', {fg = color.fg_inset, bg = color.bg_inset})
-  -- hl('StatusLineNC', {})
+  hl('StatusLine', { fg = color.fg_inset, bg = color.bg_inset })
+  hl('StatusLineNC', { bg = color.bg_inset })
   hl('VertSplit', { fg = color.bg, bg = color.bg })
 
   -- hl('TabLine', {})
@@ -214,6 +214,22 @@ function M.setup(opts)
   hl('DiagnosticLineNrHint', { fg = color.added })
 
 
+  -------------------------------------------------
+  -- statusline
+  -------------------------------------------------
+
+  hl('StatusLineMode', { fg = color.highlight, bg = color.bg_inset })
+  hl('StatusLineGitBranch', { bg = color.bg_inset })
+  hl('StatusLineGitCommitAdded', { fg = color.added, bg = color.bg_inset })
+  hl('StatusLineGitCommitChanged', { fg = color.modified, bg = color.bg_inset })
+  hl('StatusLineGitCommitRemoved', { fg = color.removed, bg = color.bg_inset })
+  hl('StatusLineDiagnosticError', { fg = color.removed, bg = color.bg_inset })
+  hl('StatusLineDiagnosticWarning', { fg = color.modified, bg = color.bg_inset })
+  hl('StatusLineLspProgress', { fg = color.comment, bg = color.bg_inset })
+  hl('StatusLineFileType', { bg = color.bg_inset })
+  hl('StatusLineEncode', { bg = color.bg_inset })
+
+
 
   -------------------------------------------------
   -- NvimTree
@@ -222,7 +238,7 @@ function M.setup(opts)
   -- hl('NvimTreeFileDirty',{})
   -- hl('NvimTreeFileStaged',{})
   -- hl('NvimTreeFileMerge',{})
-  hl('NvimTreeFileRenamed',{ fg = color.renamed })
+  hl('NvimTreeFileRenamed', { fg = color.renamed })
   hl('NvimTreeFileNew', { fg = color.added })
   hl('NvimTreeFileDeleted', { fg = color.removed })
   hl('NvimTreeFileIgnored', { fg = color.comment })
@@ -255,8 +271,8 @@ function M.setup(opts)
   -------------------------------------------------
 
   hl('TelescopeNormal', { fg = color.fg_overlay, bg = color.bg_overlay })
-  hl('TelescopeBorder', { fg = color.bg_overlay, bg = color.bg_overlay })
-  hl('TelescopeSelection', { bg = color.bg_inset })
+  hl('TelescopeBorder', { fg = color.border, bg = color.bg_overlay })
+  hl('TelescopeSelection', { bg = color.border })
   hl('TelescopePromptPrefix', { fg = color.highlight })
 end
 
