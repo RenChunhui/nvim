@@ -61,7 +61,7 @@ return {
         },
         t = {
           name = 'Toggle',
-          b = { '<cmd>BlamerToggle<cr>', 'Blamer' },
+          b = { '<cmd>Gitsigns toggle_current_line_blame<cr>', 'Git Blamer' },
           e = { '<cmd>NvimTreeToggle<cr>', 'Explorer' },
           t = { '<cmd>lua require"telescope.builtin".colorscheme{}<CR>', 'Theme'}
         },
