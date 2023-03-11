@@ -12,6 +12,7 @@ return {
       root_folder_modifier = ":~",
       special_files = {},
       icons = {
+        symlink_arrow = " ➛ ",
         show = {
           file = true,
           folder = true,

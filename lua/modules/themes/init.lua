@@ -219,7 +219,7 @@ function M.setup(opts)
   -------------------------------------------------
 
   hl('StatusLineMode', { fg = color.highlight, bg = color.bg_inset })
-  hl('StatusLineGitBranch', { bg = color.bg_inset })
+  hl('StatusLineGitBranch', { fg = color.comment, bg = color.bg_inset })
   hl('StatusLineGitCommitAdded', { fg = color.added, bg = color.bg_inset })
   hl('StatusLineGitCommitChanged', { fg = color.modified, bg = color.bg_inset })
   hl('StatusLineGitCommitRemoved', { fg = color.removed, bg = color.bg_inset })
