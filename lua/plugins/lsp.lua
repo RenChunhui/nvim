@@ -7,7 +7,7 @@ return {
     },
     config = function(_, opts)
       -- diagnostic
-      for type, icon in pairs(require('core').icons.diagnostics) do
+      for type, icon in pairs(require("core.configs").icons.diagnostics) do
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
       end

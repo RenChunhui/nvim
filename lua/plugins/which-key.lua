@@ -10,15 +10,6 @@ return {
       local wk = require("which-key")
       wk.setup(opts)
       wk.register({
-        ['1'] = { '<cmd>BufferLineGoToBuffer 1<CR>', 'Tabline 1' },
-        ['2'] = { '<cmd>BufferLineGoToBuffer 2<CR>', 'Tabline 2' },
-        ['3'] = { '<cmd>BufferLineGoToBuffer 3<CR>', 'Tabline 3' },
-        ['4'] = { '<cmd>BufferLineGoToBuffer 4<CR>', 'Tabline 4' },
-        ['5'] = { '<cmd>BufferLineGoToBuffer 5<CR>', 'Tabline 5' },
-        ['6'] = { '<cmd>BufferLineGoToBuffer 6<CR>', 'Tabline 6' },
-        ['7'] = { '<cmd>BufferLineGoToBuffer 7<CR>', 'Tabline 7' },
-        ['8'] = { '<cmd>BufferLineGoToBuffer 8<CR>', 'Tabline 8' },
-        ['9'] = { '<cmd>BufferLineGoToBuffer 9<CR>', 'Tabline 9' },
         b = {
           name = 'Buffers',
           D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'Declaration' },
@@ -71,7 +62,8 @@ return {
         t = {
           name = 'Toggle',
           b = { '<cmd>BlamerToggle<cr>', 'Blamer' },
-          e = { '<cmd>NvimTreeToggle<cr>', 'Explorer' }
+          e = { '<cmd>NvimTreeToggle<cr>', 'Explorer' },
+          t = { '<cmd>lua require"telescope.builtin".colorscheme{}<CR>', 'Theme'}
         },
         w = {
           name = 'Windows'

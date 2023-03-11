@@ -11,25 +11,21 @@ return {
       shortcut = {
         {
           desc = ' Vim',
-          group = '@constant',
           action = 'edit $MYVIMRC',
           key = 'v'
         },
         {
           desc = '󰒲 Lazy',
-          group = '@constant',
           action = 'Lazy',
           key = 'l'
         },
         {
           desc = '󰋖 Help',
-          group = '@constant',
           action = 'h',
           key = 'h'
         },
         {
           desc = '󰐥 Quit',
-          group = '@constant',
           action = 'q',
           key = 'q'
         }
@@ -43,7 +39,8 @@ return {
       },
       mru = {
         limit = 5,
-        icon = ''
+        icon = '',
+        label = '  Recent Files'
       },
       footer = {}
     }

@@ -8,33 +8,6 @@ return {
     },
     opts = function()
       local cmp = require('cmp')
-      local cmp_kinds = {
-        Text = '  ',
-        Method = '  ',
-        Function = '  ',
-        Constructor = '  ',
-        Field = '  ',
-        Variable = '  ',
-        Class = '  ',
-        Interface = '  ',
-        Module = '  ',
-        Property = '  ',
-        Unit = '  ',
-        Value = '  ',
-        Enum = '  ',
-        Keyword = '  ',
-        Snippet = '  ',
-        Color = '  ',
-        File = '  ',
-        Reference = '  ',
-        Folder = '  ',
-        EnumMember = '  ',
-        Constant = '  ',
-        Struct = '  ',
-        Event = '  ',
-        Operator = '  ',
-        TypeParameter = '  ',
-      }
 
       return {
         snippet = {
@@ -49,7 +22,7 @@ return {
         },
         formatting = {
           format = function(entry, vim_item)
-            vim_item.kind = cmp_kinds[vim_item.kind]
+            vim_item.kind = require("core.configs").icons.kinds[vim_item.kind]
             vim_item.menu = ({
                   nvim_lsp = '[LSP]',
                   buffer = '[BUF]',

@@ -25,6 +25,10 @@ return {
       find_files = {
         previewer = false,
         theme = 'dropdown'
+      },
+      colorscheme = {
+        previewer = false,
+        theme = 'dropdown'
       }
     },
     extensions = {
