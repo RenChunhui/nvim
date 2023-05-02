@@ -22,7 +22,7 @@ local opts = {
   },
   install = {
     missing = true,
-    colorscheme = { "habamax" },
+    colorscheme = { "catppuccin" },
   }
 }
 

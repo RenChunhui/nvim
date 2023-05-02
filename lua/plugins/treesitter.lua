@@ -4,6 +4,7 @@ return {
     build = ':TSUpdate',
     event = { "BufReadPost", "BufNewFile" },
     opts = {
+      auto_install = true,
       ensure_installed = {
         'bash',
         'css',
@@ -16,12 +17,10 @@ return {
         'rust',
         'typescript',
         'vue',
-        'yaml',
-        'org'
+        'yaml'
       },
       highlight = {
         enable = true,
-        disable = { 'org' },
       },
       playground = {
         enable = true,
@@ -38,6 +37,10 @@ return {
           goto_node = '<cr>',
           show_help = '?',
         },
+      },
+      autotag = {
+        enable = true,
+        filetypes = { 'html', 'vue' }
       }
     }
   }

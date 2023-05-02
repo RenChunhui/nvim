@@ -63,7 +63,15 @@ return {
           name = 'Toggle',
           b = { '<cmd>Gitsigns toggle_current_line_blame<cr>', 'Git Blamer' },
           e = { '<cmd>NvimTreeToggle<cr>', 'Explorer' },
-          t = { '<cmd>lua require"telescope.builtin".colorscheme{}<CR>', 'Theme'}
+          p = {
+            name = 'Problems',
+            a = { '<cmd>TroubleToggle<CR>', 'All Problems' },
+            w = { '<cmd>TroubleToggle workspace_diagnostics<cr>', 'Workspace Diagnostics'},
+            d = { '<cmd>TroubleToggle document_diagnostics<cr>', 'Document Diagnostics'},
+            q = { '<cmd>TroubleToggle quickfix<CR>', 'Quickfix'},
+            r = { '<cmd>TroubleToggle lsp_references<cr>', 'LSP References'},
+          },
+          t = { '<cmd>lua require"telescope.builtin".colorscheme{}<CR>', 'Theme'},
         },
         w = {
           name = 'Windows'
