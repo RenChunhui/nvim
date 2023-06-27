@@ -12,7 +12,7 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
       end
 
-      local servers = { 'bashls', 'cssls', 'gopls', 'html', 'jsonls', 'tailwindcss', 'tsserver', 'yamlls', 'pyright',
+      local servers = { 'astro', 'bashls', 'cssls', 'gopls', 'html', 'jsonls', 'tailwindcss', 'tsserver', 'yamlls', 'pyright',
         'volar', 'lua_ls' }
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
