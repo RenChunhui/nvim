@@ -1,17 +1,28 @@
 return {
-  -- Keymaps
-  {
-    'folke/which-key.nvim',
-    keys = '<space>',
-    opts = {
-      plugins = { spelling = true },
-    },
-    config = function(_, opts)
-      local wk = require("which-key")
-      wk.setup(opts)
-      wk.register({
+  'folke/which-key.nvim',
+  event = "VeryLazy",
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+  end,
+  opts = {
+    plugins = { spelling = true },
+  },
+  config = function(_, opts)
+    local wk = require("which-key")
+
+    wk.setup(opts)
+    wk.register({
         b = {
           name = 'Buffers',
+          ['1'] = { '<cmd>lua require("bufferline").go_to(1, true)<cr>', 'Go To 1' },
+          ['2'] = { '<cmd>lua require("bufferline").go_to(2, true)<cr>', 'Go To 2' },
+          ['3'] = { '<cmd>lua require("bufferline").go_to(3, true)<cr>', 'Go To 3' },
+          ['4'] = { '<cmd>lua require("bufferline").go_to(4, true)<cr>', 'Go To 4' },
+          ['5'] = { '<cmd>lua require("bufferline").go_to(5, true)<cr>', 'Go To 5' },
+          ['6'] = { '<cmd>lua require("bufferline").go_to(6, true)<cr>', 'Go To 6' },
+          ['7'] = { '<cmd>lua require("bufferline").go_to(7, true)<cr>', 'Go To 7' },
+          ['8'] = { '<cmd>lua require("bufferline").go_to(8, true)<cr>', 'Go To 8' },
           D = { '<cmd>lua vim.lsp.buf.declaration()<CR>', 'Declaration' },
           d = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'Definition' },
           f = { '<cmd>lua vim.lsp.buf.format { async = true }<cr>', 'Format' },
@@ -24,7 +35,7 @@ return {
         f = {
           name = 'Find',
           b = { '<cmd>Telescope buffers<cr>', 'Buffer' },
-          f = { '<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>', 'File', },
+          f = { '<cmd>Telescope find_files<cr>', 'File', },
           h = { '<cmd>Telescope search_history<cr>', 'History' },
           r = { '<cmd>Telescope oldfiles<cr>', 'Recent'}
         },
@@ -76,14 +87,16 @@ return {
         w = {
           name = 'Windows'
         }
-      }, { prefix = '<leader>' })
-    end
-  },
-  {
-    'lewis6991/gitsigns.nvim',
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
+      }, {
+        mode = 'n',
+        prefix = '<leader>'
+      })
 
-    }
-  }
+      wk.register({
+
+      }, {
+        mode = 'n',
+        prefix = '<C-w>'
+      })
+    end
 }

@@ -1,9 +1,17 @@
 return {
   "catppuccin/nvim",
   name = "catppuccin",
-  event = "VeryLazy",
+  event = 'VeryLazy',
   opts = {
-    flavour = "macchiato"
+    flavour = "macchiato",
+    integrations = {
+      dashboard = true,
+      cmp = true,
+      nvimtree = true,
+      treesitter = true,
+      telescope = true,
+      which_key = false
+    }
   },
   config = function ()
     vim.cmd.colorscheme "catppuccin"

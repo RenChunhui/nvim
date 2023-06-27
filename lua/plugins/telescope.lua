@@ -8,7 +8,6 @@ return {
     defaults = {
       mappings = {
         i = {
-          -- ["<C-h>"] = "which_key",
           ["<esc>"] = function(...)
             return require("telescope.actions").close(...)
           end
@@ -24,7 +23,8 @@ return {
     pickers = {
       find_files = {
         previewer = false,
-        theme = 'dropdown'
+        theme = 'dropdown',
+        find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" }
       },
       colorscheme = {
         previewer = false,

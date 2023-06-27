@@ -11,7 +11,6 @@ return {
       show_buffer_icons = false,
       show_buffer_close_icons = false,
       show_close_icon = false,
-      separator_style = 'slant',
       numbers = function(opts)
         return string.format('%s', opts.raise(opts.ordinal))
       end,
