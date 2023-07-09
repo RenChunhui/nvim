@@ -10,7 +10,16 @@ return {
       nvimtree = true,
       treesitter = true,
       telescope = true,
-      which_key = false
+      which_key = false,
+      native_lsp = {
+        enabled = true,
+        underlines = {
+          errors = { "undercurl" },
+          hints = { "undercurl" },
+          warnings = { "undercurl" },
+          information = { "undercurl" },
+        },
+      }
     }
   },
   config = function ()
