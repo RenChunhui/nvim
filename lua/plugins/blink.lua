@@ -1,10 +1,4 @@
-return {
-  'saghen/blink.cmp',
-  event = "InsertEnter",
-  version = '*',
-  -- build = 'cargo build --release',
-  ---@module 'blink.cmp'
-  ---@type blink.cmp.Config
+require('blink.cmp').setup({
   opts = {
     keymap = {
       preset = 'default',
@@ -40,4 +34,4 @@ return {
       default = { "lsp", "path", "snippets", "buffer" },
     }
   }
-}
+})
