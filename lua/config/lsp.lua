@@ -26,9 +26,13 @@ local kind_icons = {
   [25] = "󰉺",  -- TypeParameter
 }
 
-
+vim.lsp.enable('bashls')
+vim.lsp.enable('cssls')
+vim.lsp.enable('html')
+vim.lsp.enable('jsonls')
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("ts_ls")
+vim.lsp.enable('vue_ls')
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
