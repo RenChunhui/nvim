@@ -95,34 +95,8 @@ opt.writebackup = false
 --------------------------------------------------
 
 -- 启用原生自动补全
-o.autocomplete = true
+o.autocomplete = false
 
--- 补全菜单行为
-opt.completeopt = {
-  "menu",
-  "menuone",
-  "noinsert",
-  "noselect",
-  "popup",
-  "fuzzy"
-}
-
-opt.complete = {
-  ".",
-  "w",
-  "b",
-  "u",
-  "U",
-  "t",
-  "kspell",
-  "o",
-}
-
-opt.completeitemalign = {
-  'kind',
-  'abbr',
-  'menu'
-}
 --------------------------------------------------
 -- 折叠
 --------------------------------------------------

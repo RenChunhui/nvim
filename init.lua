@@ -1,15 +1,16 @@
-require('config/globals')
-require('config/options')
+-- 加载全局设置与基础选项
+require('config.globals')
+require('config.options')
 
-require('config/keymaps')
-require('config/autocmds')
+-- 加载诊断配置与 UI 图标
+require("config.ui")
+require('config.diagnostics')
 
-require('config/treesitter')
-require("config/ui")
+-- 加载按键映射与自动命令
+require('config.keymaps')
+require('config.autocmds')
 
-require('config/diagnostics')
-require('config/lsp')
+-- 加载代码解析与 LSP
+require('config.lsp')
 
-require('plugins')
-
-vim.cmd("colorscheme base16-github")
+require('config.lazy')

@@ -1,2 +1,15 @@
+*
+
+!colors/
+!colors/**
+!lsp/
+!lsp/**
+!lua/
+!lua/**
+!.editorconfig
+!.gitignore
+!init.lua
+!LICENSE
+!README.md
+
 .DS_Store
-nvim-pack-lock.json

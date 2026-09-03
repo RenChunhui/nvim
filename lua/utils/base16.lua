@@ -61,7 +61,7 @@ function M.setup(palette)
   hl("TabLineFill",      { bg = c.base01 })
 
   hl("FloatBorder",      { fg = c.base04, bg = c.base00 })
-  hl("NormalFloat",      { bg = c.base00 })
+  hl("NormalFloat",      { bg = c.base01 })
   hl("Title",            { fg = c.base0D, bold = true })
 
   hl("WinSeparator",     { fg = c.base02 })

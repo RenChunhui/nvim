@@ -18,12 +18,12 @@ g.loaded_perl_provider = 0
 -- 禁用 Node 支持
 g.loaded_node_provider = 0
 
--- 完全禁用 netrw
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
-
 -- 禁用实时括号高亮
 g.loaded_matchparen = 1
+
+-- 禁用 netrw
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
 -- 禁用 gzip 文件编辑
 g.loaded_gzip = 1
